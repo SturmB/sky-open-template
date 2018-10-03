@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/SturmB/sky-open-template.git",
   "author": "Chris McGee <chris@chrismcgee.info>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^1.14.3"
+  }
 }
