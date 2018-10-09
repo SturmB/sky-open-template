@@ -3,8 +3,8 @@ const path = require('path');
 module.exports = {
   mode: "development",
   entry: {
-    client: './client/js/index.ts',
-    host: './host/index.ts'
+    'client/js/bundle': './client/js/index.ts',
+    'host/bundle': './host/index.ts'
   },
   devtool: "inline-source-map",
   module: {
@@ -20,7 +20,7 @@ module.exports = {
     extensions: [ '.tsx', '.ts', '.js' ]
   },
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'client')
+    path: path.resolve(__dirname),
+    filename: '[name].js',
   }
 };

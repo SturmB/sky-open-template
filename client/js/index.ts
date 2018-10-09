@@ -15,7 +15,6 @@ if (openButton) {
 /* 3) Write a helper function to pass instructions to the ExtendScript side. */
 function openDoc() {
   console.log('button clicked.');
-  // @ts-ignore
   csInterface.evalScript("openDocument()");
   console.log('after evalScript.');
 }
