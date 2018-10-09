@@ -2,14 +2,29 @@
   "name": "sky-open-template",
   "version": "2018.0.1",
   "description": "Adobe Illustrator extension to quickly open template files. Only works on the Sky Unlimited, Inc. network.",
-  "main": "index.js",
+  "private": true,
   "repository": "https://github.com/SturmB/sky-open-template.git",
   "author": "Chris McGee <chris@chrismcgee.info>",
   "license": "MIT",
   "devDependencies": {
+    "@types/jquery": "^3.3.11",
+    "commonjs": "^0.0.1",
     "prettier": "^1.14.3",
+    "systemjs": "^2.0.1",
+    "ts-loader": "^5.2.1",
     "tslint": "^5.11.0",
     "typescript": "^3.1.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
     "yuicompressor": "^2.4.8"
+  },
+  "dependencies": {
+    "csinterface-ts": "^1.0.3",
+    "types-for-adobe": "^1.2.0"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "build:prod": "webpack --config webpack.config.js --mode production",
+    "watch": "webpack --config webpack.config.js --watch"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noLib": true,
+    "types": [
+      "types-for-adobe/Illustrator/2015.3"
+    ],
+    "target": "es3"
+  }
+}
