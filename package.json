@@ -8,6 +8,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jquery": "^3.3.11",
+    "awesome-typescript-loader": "^5.2.1",
     "commonjs": "^0.0.1",
     "prettier": "^1.14.3",
     "systemjs": "^2.0.1",
