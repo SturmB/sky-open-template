@@ -18,8 +18,8 @@
         <Extension Id="com.skyunlimitedinc.open-template.panel">
             <DispatchInfo>
                 <Resources>
-                    <MainPath>./client/index.html</MainPath>
-                    <ScriptPath>./host/index.js</ScriptPath>
+                    <MainPath>./dom_html/src/index.html</MainPath>
+                    <ScriptPath>./dom_app/src/index.js</ScriptPath>
                     <CEFCommandLine />
                 </Resources>
                 <Lifecycle>

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+//    "lib": [
+//      "es5"
+//    ],
+    "noLib": true,
+    "strict": true,
+    "target": "es3",
+    "types": [
+      "types/Illustrator/2015.3"
+    ]
+  }
+}
