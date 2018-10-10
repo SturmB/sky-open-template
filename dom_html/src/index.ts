@@ -20,8 +20,8 @@ function openDoc() {
 }
 
 function saySomething() {
-  // @ts-ignore
   csInterface.evalScript("sayHi()", function(result) {
-    alert(result);
+    let text = result;
+    alert(text);
   });
 }

@@ -9,6 +9,6 @@ function openDocument() {
 function sayHi() {
     var text = 'Howdy.';
     $.writeln(text);
-    // alert(text);
+    alert(text);
     return text;
 }

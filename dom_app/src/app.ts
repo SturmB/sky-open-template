@@ -12,6 +12,6 @@ function openDocument(){
 function sayHi() {
   let text = 'Howdy.';
   $.writeln(text);
-  // alert(text);
+  alert(text);
   return text;
 }
