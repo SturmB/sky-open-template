@@ -7,8 +7,8 @@ function openDocument() {
     var docRef = app.open(fileRef);
 }
 function sayHi() {
-    var text = 'Howdy.';
+    var text = 'Hi there.';
     $.writeln(text);
-    // alert(text);
+    alert(text);
     return text;
 }

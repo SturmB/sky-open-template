@@ -10,8 +10,8 @@ function openDocument(){
 
 
 function sayHi() {
-  let text = 'Howdy.';
+  let text = 'Hi there.';
   $.writeln(text);
-  // alert(text);
+  alert(text);
   return text;
 }

@@ -21,7 +21,9 @@ function openDoc() {
 
 function saySomething() {
   // @ts-ignore
-  csInterface.evalScript("sayHi()", function(result) {
-    alert(result);
+  csInterface.evalScript("sayHi()", function(res) {
+    // let returnedText = res;
+    console.log(res);
+    alert(res);
   });
 }
