@@ -5,7 +5,7 @@
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
-            <Host Name="IDSN" Version="[12.0,13.1]" />
+            <Host Name="ILST" Version="[21.0,22.9]" />
         </HostList>
         <LocaleList>
             <Locale Code="All" />
@@ -19,7 +19,7 @@
             <DispatchInfo>
                 <Resources>
                     <MainPath>./dom_html/src/index.html</MainPath>
-                    <ScriptPath>./dom_app/src/index.js</ScriptPath>
+                    <ScriptPath>./dom_app/src/app.js</ScriptPath>
                     <CEFCommandLine />
                 </Resources>
                 <Lifecycle>

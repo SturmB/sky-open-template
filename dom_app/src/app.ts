@@ -7,3 +7,11 @@ function openDocument(){
 
   var docRef = app.open(fileRef);
 }
+
+
+function sayHi() {
+  let text = 'Howdy.';
+  $.writeln(text);
+  // alert(text);
+  return text;
+}

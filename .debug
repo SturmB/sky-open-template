@@ -2,7 +2,7 @@
 <ExtensionList>
 <Extension Id="com.skyunlimitedinc.open-template.panel">
     <HostList>
-        <Host Name="IDSN" Port="8088"/>
+        <Host Name="ILST" Port="8003"/>
     </HostList>
 </Extension>
 </ExtensionList>

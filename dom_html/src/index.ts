@@ -8,7 +8,7 @@ let csInterface = new CSInterface();
 let openButton = document.querySelector("#open-button");
 if (openButton) {
   console.log('Found the open-button');
-  openButton.addEventListener("click", openDoc);
+  openButton.addEventListener("click", saySomething);
 }
 
 /* 3) Write a helper function to pass instructions to the ExtendScript side. */
@@ -17,4 +17,11 @@ function openDoc() {
   // @ts-ignore
   csInterface.evalScript("openDocument()");
   console.log('after evalScript.');
+}
+
+function saySomething() {
+  // @ts-ignore
+  csInterface.evalScript("sayHi()", function(result) {
+    alert(result);
+  });
 }

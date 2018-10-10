@@ -15,17 +15,10 @@
     "ts-loader": "^5.2.1",
     "tslint": "^5.11.0",
     "typescript": "^3.1.1",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2",
     "yuicompressor": "^2.4.8"
   },
   "dependencies": {
     "csinterface-ts": "^1.0.3",
     "types-for-adobe": "^1.2.0"
-  },
-  "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "build:prod": "webpack --config webpack.config.js --mode production",
-    "watch": "webpack --config webpack.config.js --watch"
   }
 }

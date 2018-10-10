@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Required meta tags -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <title>Open Template</title>
 </head>
 <body>
 
-<!-- 1) Simple HTML UI elements to get us started -->
-<h1>Open Template</h1>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form action="">
+                <div class="form-group">
+                    <label for="search-box" id="search-label"></label>
+                    <input type="text" class="form-control" id="search-box" title="search-box" placeholder="Search">
+                </div>
+                <button id="open-button" type="submit" class="btn btn-primary">Open</button>
+            </form>
+        </div>
+    </div>
+</div>
 
-<!-- 2) A button -->
-<button id="open-button">Open</button>
 
-<!-- 3) Add your script dependencies here, including CEP's CSInterface.js library -->
-<!--<script type="text/javascript" src="../node_modules/systemjs/dist/s.js"></script>-->
-<!--<script>-->
-    <!--System.import('../lib/CSInterface.js');-->
-    <!--System.import('./js/index.js');-->
-<!--</script>-->
-
-<script type="text/javascript" src="../lib/CSInterface.js"></script>
-<!--<script type="text/javascript" src="./js/index.js"></script>-->
-
+<!--<script type="text/javascript" src="../lib/CSInterface.js"></script>-->
 <script type="text/javascript" src="./index.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>

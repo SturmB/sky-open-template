@@ -6,3 +6,9 @@ function openDocument() {
     $.writeln(fileRef.fullName);
     var docRef = app.open(fileRef);
 }
+function sayHi() {
+    var text = 'Howdy.';
+    $.writeln(text);
+    // alert(text);
+    return text;
+}
