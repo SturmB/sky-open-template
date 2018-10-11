@@ -2,6 +2,6 @@
   "defaultSeverity": "error",
   "extends": ["tslint:recommended"],
   "jsRules": {},
-  "rules": { "no-console": false },
+  "rules": { "no-console": false, "comment-format": false },
   "rulesDirectory": []
 }

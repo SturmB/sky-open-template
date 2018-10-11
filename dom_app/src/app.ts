@@ -1,5 +1,14 @@
 /// <reference types="../node_modules/types-for-adobe/Illustrator/2015.3"/>
 
+const path = $.includePath;
+// now build a path to another js file
+const libfile = File($.includePath + "/Sayer.jsxinc");
+$.writeln(libfile.toString());
+if (libfile.exists) {
+  $.writeln("Found file!");
+  $.evalFile(libfile);
+}
+
 function openDocument() {
   $.writeln("in the openDocument() function.");
   const fileRef = new File(
@@ -11,16 +20,9 @@ function openDocument() {
 }
 
 function sayHi() {
-  const text = "Hi there.";
-  const talker = new Talker();
-  const newText = talker.sayHello();
-  $.writeln(newText);
-  alert(newText);
-  return newText;
-}
-
-class Talker {
-  public sayHello() {
-    return "Talker says 'Hi!'";
-  }
+  const text = "libfile 2 - say";
+  $.writeln(text);
+  $.writeln(say());
+  alert(text);
+  return text;
 }
