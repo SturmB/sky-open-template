@@ -1,3 +1,5 @@
-var say = function() {
-  return "From Sayer.";
-};
+namespace SimpleSayer {
+  export function say() {
+    return "From Sayer.";
+  }
+}

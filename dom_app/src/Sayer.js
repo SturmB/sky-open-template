@@ -1,4 +1,8 @@
 "use strict";
-var say = function () {
-    return "From Sayer.";
-};
+var SimpleSayer;
+(function (SimpleSayer) {
+    function say() {
+        return "From Sayer.";
+    }
+    SimpleSayer.say = say;
+})(SimpleSayer || (SimpleSayer = {}));
