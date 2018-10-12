@@ -1,14 +1,15 @@
 /// <reference types="../node_modules/types-for-adobe/Illustrator/2015.3"/>
-/// <reference path="Sayer.ts" />
 
 const path = $.includePath;
 // now build a path to another js file
-const libfile = File($.includePath + "/Sayer.js");
+const libfile = File($.includePath + "/TheTalker.js");
 $.writeln(libfile.toString());
 if (libfile.exists) {
   $.writeln("Found file!");
   $.evalFile(libfile);
 }
+
+const Talker = SimpleSayer.Talker;
 
 function openDocument() {
   $.writeln("in the openDocument() function.");
@@ -21,9 +22,10 @@ function openDocument() {
 }
 
 function sayHi() {
-  const text = "SimpleSayer";
+  const text = "Facade or Alias 2";
   $.writeln(text);
-  $.writeln(SimpleSayer.say());
+  const talker = new Talker();
+  $.writeln(talker.sayHello());
   // $.writeln(say());
   alert(text);
   return text;

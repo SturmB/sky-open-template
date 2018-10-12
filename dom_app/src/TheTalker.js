@@ -1,12 +1,14 @@
 "use strict";
 /// <reference types="../node_modules/types-for-adobe/Illustrator/2015.3"/>
-exports.__esModule = true;
-var Talker = function () {
-    function Talker() {
-    }
-    Talker.sayHello = function () {
-        return "Talker external!";
-    };
-    return Talker;
-};
-exports.Talker = Talker;
+var SimpleSayer;
+(function (SimpleSayer) {
+    var Talker = /** @class */ (function () {
+        function Talker() {
+        }
+        Talker.prototype.sayHello = function () {
+            return "Talker external!";
+        };
+        return Talker;
+    }());
+    SimpleSayer.Talker = Talker;
+})(SimpleSayer || (SimpleSayer = {}));

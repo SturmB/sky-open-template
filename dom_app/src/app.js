@@ -1,14 +1,14 @@
 "use strict";
 /// <reference types="../node_modules/types-for-adobe/Illustrator/2015.3"/>
-/// <reference path="Sayer.ts" />
 var path = $.includePath;
 // now build a path to another js file
-var libfile = File($.includePath + "/Sayer.js");
+var libfile = File($.includePath + "/TheTalker.js");
 $.writeln(libfile.toString());
 if (libfile.exists) {
     $.writeln("Found file!");
     $.evalFile(libfile);
 }
+var Talker = SimpleSayer.Talker;
 function openDocument() {
     $.writeln("in the openDocument() function.");
     var fileRef = new File("~/Product Templates (Master)/Art Evaluation Form/Art_Evaluation_Form.indd");
@@ -16,9 +16,10 @@ function openDocument() {
     var docRef = app.open(fileRef);
 }
 function sayHi() {
-    var text = "SimpleSayer";
+    var text = "Facade or Alias 2";
     $.writeln(text);
-    $.writeln(SimpleSayer.say());
+    var talker = new Talker();
+    $.writeln(talker.sayHello());
     // $.writeln(say());
     alert(text);
     return text;
