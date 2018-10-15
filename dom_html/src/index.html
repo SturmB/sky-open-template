@@ -6,14 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-<!--
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
--->
 
     <!-- Panel Styles -->
-    <!--<link id="theme" rel="stylesheet" href="css/light.css">-->
-    <!--<link id="hostStyle" rel="stylesheet" href="css/theme.css">-->
     <!-- Will contain Topcoat original CSS href -->
     <link id="topcoat" rel="stylesheet">
     <!-- Topcoat overrides (Font, etc) -->
@@ -25,31 +21,20 @@
 </head>
 <body>
 
-<h3 class="center">PS Projects 2.0</h3>
-<div class="topcoat-button-bar" style="margin-left:20px">
-    <div class="topcoat-button-bar__item">
-        <button id="create" class="topcoat-button-bar__button--large">Create</button>
-    </div>
-    <div class="topcoat-button-bar__item">
-        <button id="load" class="topcoat-button-bar__button--large">Load…</button>
-    </div>
-    <div class="topcoat-button-bar__item">
-        <button id="modify" class="topcoat-button-bar__button--large">Modify</button>
-    </div>
-</div>
-
 <div id="content" class="container">
-    <div>
-        <button id="btn_test" class="topcoat-button">Call ExtendScript</button>
-    </div>
     <div class="row">
         <div class="col">
             <form action="">
                 <div class="form-group">
                     <label for="search-box" id="search-label"></label>
-                    <input type="text" class="form-control" id="search-box" title="search-box" placeholder="Search">
+                    <input type="search" class="form-control topcoat-search-input--large mb-3" id="search-box" title="search-box" placeholder="Filter" autofocus>
+                    <select name="templateList" class="topcoat-textarea w-100" id="template-list" multiple title="template-list" size="15">
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="hamster">Hamster</option>
+                    </select>
                 </div>
-                <button id="open-button" type="submit" class="btn btn-primary">Open</button>
+                <button id="open-button" type="submit" class="btn topcoat-button--large--cta w-100">Open</button>
             </form>
         </div>
     </div>
@@ -64,14 +49,12 @@
 <script type="text/javascript" src="js/lib/themeManager.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 
-<!--
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
--->
 
 </body>
 </html>
