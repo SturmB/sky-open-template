@@ -9,12 +9,14 @@
    * Load JSX file into the scripting context of the product. All the jsx files in
    * folder [ExtensionRoot]/jsx will be loaded.
    */
+/*
   function loadJSX() {
     console.log("Loading JSX files.");
     const extensionRoot =
       csInterface.getSystemPath(SystemPath.EXTENSION) + "/dom_app/src/";
     csInterface.evalScript('ext.evalFiles("' + extensionRoot + '")', null);
   }
+*/
 
   function init() {
     themeManager.init();
@@ -26,10 +28,10 @@
     if (openButton) {
       openButton.on("click", () => {
         console.log("button clicked.");
-        loadJSX();
+        // loadJSX();
         csInterface.evalScript("sayHi();", (res: any) => {
           console.log(res);
-          alert(res);
+          // alert(res);
         });
       });
     }

@@ -1,11 +1,11 @@
 "use strict";
 /// <reference types="../../node_modules/types-for-adobe/Illustrator/2015.3"/>
-/// <reference path="../lib/TheTalker.ts"/>
-/// <reference path="../lib/Sayer.ts"/>
+/// <reference path="./lib/TheTalker.ts"/>
+/// <reference path="./lib/Sayer.ts"/>
 /**
  * Load libraries.
  */
-var libFolder = new Folder($.includePath + "/../lib/");
+var libFolder = new Folder($.includePath + "/lib/");
 if (libFolder.exists) {
     var jsxFiles = libFolder.getFiles("*.js");
     for (var _i = 0, jsxFiles_1 = jsxFiles; _i < jsxFiles_1.length; _i++) {
@@ -26,11 +26,11 @@ function openDocument() {
     var docRef = app.open(fileRef);
 }
 function sayHi() {
-    var text = "loadJSX 16.";
+    var text = "loadJSX 17.";
     $.writeln(text);
     var talker = new Talker();
     $.writeln(talker.sayHello());
     $.writeln(SimpleSayer.say());
-    alert(text);
+    // alert(text);
     return text;
 }

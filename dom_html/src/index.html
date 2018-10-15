@@ -12,14 +12,36 @@
 -->
 
     <!-- Panel Styles -->
+    <!--<link id="theme" rel="stylesheet" href="css/light.css">-->
+    <!--<link id="hostStyle" rel="stylesheet" href="css/theme.css">-->
+    <!-- Will contain Topcoat original CSS href -->
+    <link id="topcoat" rel="stylesheet">
+    <!-- Topcoat overrides (Font, etc) -->
+    <link id="topcoat-host" rel="stylesheet" href="css/topcoat-host.css">
+    <!-- Actual Panel styling -->
     <link rel="stylesheet" href="css/styles.css">
-    <link id="hostStyle" rel="stylesheet" href="css/theme.css">
 
     <title>Open Template</title>
 </head>
 <body>
 
+<h3 class="center">PS Projects 2.0</h3>
+<div class="topcoat-button-bar" style="margin-left:20px">
+    <div class="topcoat-button-bar__item">
+        <button id="create" class="topcoat-button-bar__button--large">Create</button>
+    </div>
+    <div class="topcoat-button-bar__item">
+        <button id="load" class="topcoat-button-bar__button--large">Load…</button>
+    </div>
+    <div class="topcoat-button-bar__item">
+        <button id="modify" class="topcoat-button-bar__button--large">Modify</button>
+    </div>
+</div>
+
 <div id="content" class="container">
+    <div>
+        <button id="btn_test" class="topcoat-button">Call ExtendScript</button>
+    </div>
     <div class="row">
         <div class="col">
             <form action="">
@@ -34,13 +56,13 @@
 </div>
 
 
-<script type="text/javascript" src="../lib/CSInterface.js"></script>
+<script type="text/javascript" src="js/lib/CSInterface.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
         crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="../lib/themeManager.js"></script>
-<script type="text/javascript" src="./main.js"></script>
+<script type="text/javascript" src="js/lib/themeManager.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
 <!--
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"

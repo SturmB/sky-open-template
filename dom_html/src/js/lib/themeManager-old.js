@@ -47,7 +47,9 @@ var themeManager = (function () {
         if (stylesheet) {
             stylesheet = stylesheet.sheet;
             if (stylesheet.addRule) {
-                stylesheet.addRule(selector, rule);
+              console.log("Adding rule " + rule + " to " + selector + " on stylesheet " + stylesheet + ".");
+              stylesheet.addRule(selector, rule);
+              console.log(stylesheet);
             } else if (stylesheet.insertRule) {
                 stylesheet.insertRule(selector + ' { ' + rule + ' }', stylesheet.cssRules.length);
             }
@@ -71,26 +73,26 @@ var themeManager = (function () {
             fontColor = "000000";
         }
         var borderColor = toHex(panelBgColor, -100);
-                
+
         var styleId = "hostStyle";
-        addRule(styleId, "body", "background-color:" + "#" + bgdColor);
-        addRule(styleId, "body", "font-size:" + appSkinInfo.baseFontSize + "px;");
-        addRule(styleId, "body", "font-family:" + appSkinInfo.baseFontFamily);
-        addRule(styleId, "body", "color:" + "#" + fontColor);
+        addRule(styleId, "body", "background-color:" + "#" + bgdColor + " !important");
+        addRule(styleId, "body", "font-size:" + appSkinInfo.baseFontSize + "px !important;");
+        addRule(styleId, "body", "font-family:" + appSkinInfo.baseFontFamily + " !important");
+        addRule(styleId, "body", "color:" + "#" + fontColor + " !important");
                         
-        addRule(styleId, "button", "background-color:" + "#" + eltBgdColor);
-        addRule(styleId, "button:hover", "background-color:" + "#" + bgdColor);
-        addRule(styleId, "button:active", "background-color:" + "#" + eltBgdColor);
-        addRule(styleId, "button", "border-color: " + "#" + borderColor);
+        addRule(styleId, "button", "background-color:" + "#" + eltBgdColor + " !important");
+        addRule(styleId, "button:hover", "background-color:" + "#" + bgdColor + " !important");
+        addRule(styleId, "button:active", "background-color:" + "#" + eltBgdColor + " !important");
+        addRule(styleId, "button", "border-color: " + "#" + borderColor + " !important");
         
 
-        addRule(styleId, ".hostFont", "font-size:" + appSkinInfo.baseFontSize + "px;");
-        addRule(styleId, ".hostFont", "font-family:" + appSkinInfo.baseFontFamily);
-        addRule(styleId, ".hostFont", "color:" + "#" + fontColor);
+        addRule(styleId, ".hostFont", "font-size:" + appSkinInfo.baseFontSize + "px !important;");
+        addRule(styleId, ".hostFont", "font-family:" + appSkinInfo.baseFontFamily + " !important");
+        addRule(styleId, ".hostFont", "color:" + "#" + fontColor + " !important");
                         
-        addRule(styleId, ".hostBgd", "background-color:" + "#" + bgdColor);
-        addRule(styleId, ".hostElt", "background-color:" + "#" + eltBgdColor);
-        addRule(styleId, ".hostElt", "border-color: " + "#" + borderColor);
+        addRule(styleId, ".hostBgd", "background-color:" + "#" + bgdColor + " !important");
+        addRule(styleId, ".hostElt", "background-color:" + "#" + eltBgdColor + " !important");
+        addRule(styleId, ".hostElt", "border-color: " + "#" + borderColor + " !important");
 
     }
     
@@ -104,8 +106,10 @@ var themeManager = (function () {
     function init() {
         
         var csInterface = new CSInterface();
-    
-        updateThemeWithAppSkinInfo(csInterface.hostEnvironment.appSkinInfo);
+      // console.log(csInterface);
+      // console.log(csInterface.hostEnvironment);
+
+      updateThemeWithAppSkinInfo(csInterface.hostEnvironment.appSkinInfo);
         
         csInterface.addEventListener(CSInterface.THEME_COLOR_CHANGED_EVENT, onAppThemeColorChanged);
     }
