@@ -1,12 +1,22 @@
 "use strict";
-/// <reference types="../node_modules/types-for-adobe/Illustrator/2015.3"/>
-var path = $.includePath;
-// now build a path to another js file
-var libfile = File($.includePath + "/TheTalker.js");
-$.writeln(libfile.toString());
-if (libfile.exists) {
-    $.writeln("Found file!");
-    $.evalFile(libfile);
+/// <reference types="../../node_modules/types-for-adobe/Illustrator/2015.3"/>
+/// <reference path="../lib/TheTalker.ts"/>
+/// <reference path="../lib/Sayer.ts"/>
+/**
+ * Load libraries.
+ */
+var libFolder = new Folder($.includePath + "/../lib/");
+if (libFolder.exists) {
+    var jsxFiles = libFolder.getFiles("*.js");
+    for (var _i = 0, jsxFiles_1 = jsxFiles; _i < jsxFiles_1.length; _i++) {
+        var jsxFile = jsxFiles_1[_i];
+        try {
+            $.evalFile(jsxFile);
+        }
+        catch (e) {
+            alert("Exception: " + e);
+        }
+    }
 }
 var Talker = SimpleSayer.Talker;
 function openDocument() {
@@ -16,11 +26,11 @@ function openDocument() {
     var docRef = app.open(fileRef);
 }
 function sayHi() {
-    var text = "Facade or Alias 2";
+    var text = "loadJSX 16.";
     $.writeln(text);
     var talker = new Talker();
     $.writeln(talker.sayHello());
-    // $.writeln(say());
+    $.writeln(SimpleSayer.say());
     alert(text);
     return text;
 }
