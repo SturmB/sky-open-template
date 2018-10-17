@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Panel Styles -->
     <!-- Will contain Topcoat original CSS href -->
@@ -23,38 +22,56 @@
 
 <div id="content" class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-12">
             <form action="">
                 <div class="form-group">
                     <label for="search-box" id="search-label"></label>
                     <input type="search" class="form-control topcoat-search-input--large mb-3" id="search-box" title="search-box" placeholder="Filter" autofocus>
-                    <select name="templateList" class="topcoat-textarea w-100" id="template-list" multiple title="template-list" size="15">
+                    <select name="templateList" class="topcoat-textarea w-100" id="template-list" multiple title="template-list" size="10">
                         <option value="dog">Dog</option>
                         <option value="cat">Cat</option>
                         <option value="hamster">Hamster</option>
                     </select>
+                    <input type="file" class="form-control-file" id="file-control" webkitdirectory>
                 </div>
-                <button id="open-button" type="submit" class="btn topcoat-button--large--cta w-100">Open</button>
             </form>
+        </div>
+        <div class="col-6">
+            <button id="setdir-button" type="submit" class="btn topcoat-button--large w-100">Templates</button>
+        </div>
+        <div class="col-6">
+            <button id="open-button" type="submit" class="btn topcoat-button--large--cta w-100">Open</button>
         </div>
     </div>
 </div>
 
 
 <script type="text/javascript" src="js/lib/CSInterface.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-        crossorigin="anonymous"></script>
+<script type="text/javascript" src="../../node_modules/jquery/dist/jquery.slim.min.js"></script>
 
 <script type="text/javascript" src="js/lib/themeManager.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+<script src="../../node_modules/systemjs/dist/system.js"></script>
+<!--<script type="text/javascript" src="js/main.js"></script>-->
+<script>
+  // console.log("before import.");
+  SystemJS.config({
+    packages: {'.': {defaultExtension: 'js'}},
+/*
+    paths: {
+      // paths serve as alias
+      'npm:': '../../node_modules/',
+    },
+    map: {
+      'fs-plus': 'npm:fs-plus/lib/fs-plus.js',
+    },
+*/
+  });
+  SystemJS.import("js/main");
+  // console.log("after import.");
+</script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+<script type="text/javascript" src="../../node_modules/popper.js/dist/popper.min.js"></script>
+<script type="text/javascript" src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </body>
 </html>

@@ -31,6 +31,9 @@ function sayHi() {
     var talker = new Talker();
     $.writeln(talker.sayHello());
     $.writeln(SimpleSayer.say());
-    // alert(text);
+    alert(text);
     return text;
+}
+function getFiles(path) {
+    return ["one", "two", "three"];
 }
