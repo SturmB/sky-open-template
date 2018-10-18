@@ -1,8 +1,9 @@
 /*global JSON*/
 /// <reference types="../../node_modules/types-for-adobe/Illustrator/2015.3"/>
+/// <reference path="./lib/json2.d.ts"/>
 /// <reference path="./lib/TheTalker.ts"/>
 /// <reference path="./lib/Sayer.ts"/>
-/// <reference path="./lib/json2.d.ts"/>
+/// <reference path="./lib/Template.ts"/>
 
 /**
  * Load libraries.
@@ -20,6 +21,7 @@ if (libFolder.exists) {
 }
 
 const Talker = SimpleSayer.Talker;
+const TemplateFile = OpenTemplate.TemplateFile;
 
 function openDocument() {
   $.writeln("in the openDocument() function.");
@@ -36,24 +38,34 @@ function sayHi() {
   $.writeln(text);
   const talker = new Talker();
   $.writeln(talker.sayHello());
-  $.writeln(SimpleSayer.say());
+  // $.writeln(SimpleSayer.say());
   alert(text);
   return text;
 }
 
-function getFilesRecursively(folder: Folder, extension?: string, finalArray: string[] = []): string[] {
-
+function getFilesRecursively(
+  folder: Folder,
+  finalArray: OpenTemplate.TemplateFile[] = [],
+  extension?: string,
+): OpenTemplate.TemplateFile[] {
   const fileList: Array<File | Folder> = folder.getFiles("*");
+
+  const addTemplate = (file: File) => {
+    const f = new TemplateFile(file);
+    // $.writeln(`f:
+    //   ${f}`);
+    finalArray.push(f);
+  };
 
   for (const file of fileList) {
     // $.writeln(file);
     if (file instanceof Folder) {
-      finalArray = getFilesRecursively(file, "ai", finalArray);
+      finalArray = getFilesRecursively(file, finalArray, "ai");
     } else {
       if (!extension) {
-        finalArray.push(file.name);
+        addTemplate(file);
       } else if (file.name.split(".").pop() === extension) {
-        finalArray.push(file.name);
+        addTemplate(file);
       }
     }
   }
@@ -72,7 +84,7 @@ function getFiles(path: string): string {
   // $.writeln(`Folder: ${path}`);
   const folder = new Folder(path);
   // $.writeln(`Folder exists: ${folder.exists}`);
-  const productArray = getFilesRecursively(folder, "ai");
+  const productArray = getFilesRecursively(folder, [], "ai");
 
   // $.writeln("");
   // $.writeln("---");

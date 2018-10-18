@@ -1,6 +1,7 @@
 /*global $, window, location, CSInterface, SystemPath, themeManager*/
 
 import * as talker from "./lib/CEPTalker";
+import "./lib/Template";
 // import { TemplateList } from "./TemplateList";
 
 (() => {
@@ -44,26 +45,24 @@ import * as talker from "./lib/CEPTalker";
     const templateList: JQuery<HTMLElement> = $("#template-list");
     if (templateButton) {
       templateButton.on("change", () => {
-        console.log("File changed.");
+        // console.log("File changed.");
         // @ts-ignore
         const files: FileList = templateButton[0].files;
         if (files.length) {
           // @ts-ignore
           const filePath: string = files[0].path;
           const path: string = filePath.substr(0, filePath.lastIndexOf("/"));
-          console.log(`Its path is: ${path}`);
+          // console.log(`Its path is: ${path}`);
           csInterface.evalScript(`getFiles("${path}");`, (res: string) => {
             // console.log(res);
-            const fileList = JSON.parse(res);
-            console.log(fileList);
-/*
-            const resArray: string[] = res.split(",");
+            const fileList: OpenTemplate.TemplateFile[] = JSON.parse(res);
+            // console.log(fileList);
+            // console.log(fileList[0].fullName);
             templateList.empty();
-            for (const item of resArray) {
-              console.log(`Item: ${item}`);
-              templateList.append($("<option />").val(item).text(item));
+            for (const file of fileList) {
+              // console.log(`Item: ${file}`);
+              templateList.append($("<option />").val(file.fullPath).text(file.fileName));
             }
-*/
           });
         }
       });

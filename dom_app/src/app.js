@@ -1,9 +1,10 @@
 "use strict";
 /*global JSON*/
 /// <reference types="../../node_modules/types-for-adobe/Illustrator/2015.3"/>
+/// <reference path="./lib/json2.d.ts"/>
 /// <reference path="./lib/TheTalker.ts"/>
 /// <reference path="./lib/Sayer.ts"/>
-/// <reference path="./lib/json2.d.ts"/>
+/// <reference path="./lib/Template.ts"/>
 /**
  * Load libraries.
  */
@@ -21,6 +22,7 @@ if (libFolder.exists) {
     }
 }
 var Talker = SimpleSayer.Talker;
+var TemplateFile = OpenTemplate.TemplateFile;
 function openDocument() {
     $.writeln("in the openDocument() function.");
     var fileRef = new File("~/Product Templates (Master)/Art Evaluation Form/Art_Evaluation_Form.indd");
@@ -32,25 +34,31 @@ function sayHi() {
     $.writeln(text);
     var talker = new Talker();
     $.writeln(talker.sayHello());
-    $.writeln(SimpleSayer.say());
+    // $.writeln(SimpleSayer.say());
     alert(text);
     return text;
 }
-function getFilesRecursively(folder, extension, finalArray) {
+function getFilesRecursively(folder, finalArray, extension) {
     if (finalArray === void 0) { finalArray = []; }
     var fileList = folder.getFiles("*");
+    var addTemplate = function (file) {
+        var f = new TemplateFile(file);
+        // $.writeln(`f:
+        //   ${f}`);
+        finalArray.push(f);
+    };
     for (var _i = 0, fileList_1 = fileList; _i < fileList_1.length; _i++) {
         var file = fileList_1[_i];
         // $.writeln(file);
         if (file instanceof Folder) {
-            finalArray = getFilesRecursively(file, "ai", finalArray);
+            finalArray = getFilesRecursively(file, finalArray, "ai");
         }
         else {
             if (!extension) {
-                finalArray.push(file.name);
+                addTemplate(file);
             }
             else if (file.name.split(".").pop() === extension) {
-                finalArray.push(file.name);
+                addTemplate(file);
             }
         }
     }
@@ -67,7 +75,7 @@ function getFiles(path) {
     // $.writeln(`Folder: ${path}`);
     var folder = new Folder(path);
     // $.writeln(`Folder exists: ${folder.exists}`);
-    var productArray = getFilesRecursively(folder, "ai");
+    var productArray = getFilesRecursively(folder, [], "ai");
     // $.writeln("");
     // $.writeln("---");
     // $.writeln("");
