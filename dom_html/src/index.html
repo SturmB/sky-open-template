@@ -27,17 +27,19 @@
                 <div class="form-group">
                     <label for="search-box" id="search-label"></label>
                     <input type="search" class="form-control topcoat-search-input--large mb-3" id="search-box" title="search-box" placeholder="Filter" autofocus>
-                    <select name="templateList" class="topcoat-textarea w-100" id="template-list" multiple title="template-list" size="10">
+                    <select name="templateList" class="topcoat-textarea w-100" id="template-list" multiple title="template-list" size="15">
                         <option value="dog">Dog</option>
                         <option value="cat">Cat</option>
                         <option value="hamster">Hamster</option>
                     </select>
-                    <input type="file" class="form-control-file" id="file-control" webkitdirectory>
+                    <!--<input type="file" class="form-control-file" id="file-control" webkitdirectory>-->
                 </div>
             </form>
         </div>
-        <div class="col-6">
-            <button id="setdir-button" type="submit" class="btn topcoat-button--large w-100">Templates</button>
+        <div class="custom-file col-6">
+            <label class="btn topcoat-button--large w-100" for="file-control">Templates</label>
+            <input type="file" class="custom-file-input" id="file-control" webkitdirectory>
+            <!--<button id="setdir-button" type="submit" class="btn topcoat-button&#45;&#45;large w-100">Templates</button>-->
         </div>
         <div class="col-6">
             <button id="open-button" type="submit" class="btn topcoat-button--large--cta w-100">Open</button>
