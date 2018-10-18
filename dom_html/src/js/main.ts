@@ -10,7 +10,7 @@ import * as talker from "./lib/CEPTalker";
   // const TemplateScript = OpenTemplate.TemplateList;
   // const templateList = new TemplateList("./");
 
-  function init() {
+  function init(): void {
 
     // alert("main init.");
 
@@ -21,7 +21,7 @@ import * as talker from "./lib/CEPTalker";
     /**
      * Event handler for the Open button.
      */
-    const openButton = $("#open-button");
+    const openButton: JQuery<HTMLElement> = $("#open-button");
     if (openButton) {
       openButton.on("click", () => {
         // alert(`Button clicked.`);
@@ -40,25 +40,30 @@ import * as talker from "./lib/CEPTalker";
     /**
      * Event handler for the template folder selection button.
      */
-    const templateButton = $("#file-control");
-    const templateList = $("#template-list");
+    const templateButton: JQuery<HTMLElement> = $("#file-control");
+    const templateList: JQuery<HTMLElement> = $("#template-list");
     if (templateButton) {
       templateButton.on("change", () => {
         console.log("File changed.");
         // @ts-ignore
-        const files = templateButton[0].files;
+        const files: FileList = templateButton[0].files;
         if (files.length) {
-          const filepath = files[0].path;
-          const path = filepath.substr(0, filepath.lastIndexOf("/") - 1);
+          // @ts-ignore
+          const filePath: string = files[0].path;
+          const path: string = filePath.substr(0, filePath.lastIndexOf("/"));
           console.log(`Its path is: ${path}`);
-          csInterface.evalScript(`getFiles("${path}");`, (res: any) => {
-            console.log(res);
+          csInterface.evalScript(`getFiles("${path}");`, (res: string) => {
+            // console.log(res);
+            const fileList = JSON.parse(res);
+            console.log(fileList);
+/*
             const resArray: string[] = res.split(",");
             templateList.empty();
             for (const item of resArray) {
               console.log(`Item: ${item}`);
               templateList.append($("<option />").val(item).text(item));
             }
+*/
           });
         }
       });

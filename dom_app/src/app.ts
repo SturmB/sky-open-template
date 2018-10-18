@@ -1,6 +1,8 @@
+/*global JSON*/
 /// <reference types="../../node_modules/types-for-adobe/Illustrator/2015.3"/>
 /// <reference path="./lib/TheTalker.ts"/>
 /// <reference path="./lib/Sayer.ts"/>
+/// <reference path="./lib/json2.d.ts"/>
 
 /**
  * Load libraries.
@@ -39,6 +41,46 @@ function sayHi() {
   return text;
 }
 
-function getFiles(path: string): string[] {
-  return ["one", "two", "three"];
+function getFilesRecursively(folder: Folder, extension?: string, finalArray: string[] = []): string[] {
+
+  const fileList: Array<File | Folder> = folder.getFiles("*");
+
+  for (const file of fileList) {
+    // $.writeln(file);
+    if (file instanceof Folder) {
+      finalArray = getFilesRecursively(file, "ai", finalArray);
+    } else {
+      if (!extension) {
+        finalArray.push(file.name);
+      } else if (file.name.split(".").pop() === extension) {
+        finalArray.push(file.name);
+      }
+    }
+  }
+
+  return finalArray;
+}
+
+/**
+ * Gets a string to a local directory and returns
+ * all of the files recursively within it as a JSON string.
+ *
+ * @param path
+ */
+// noinspection JSUnusedGlobalSymbols
+function getFiles(path: string): string {
+  // $.writeln(`Folder: ${path}`);
+  const folder = new Folder(path);
+  // $.writeln(`Folder exists: ${folder.exists}`);
+  const productArray = getFilesRecursively(folder, "ai");
+
+  // $.writeln("");
+  // $.writeln("---");
+  // $.writeln("");
+
+  // $.writeln(productArray);
+  // $.writeln(`First: ${productArray[0]}`);
+  const j = JSON.stringify(productArray);
+  // $.writeln(j);
+  return j;
 }
