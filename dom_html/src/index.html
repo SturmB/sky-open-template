@@ -26,11 +26,15 @@
             <form action="">
                 <div class="form-group">
                     <label for="search-box" id="search-label"></label>
-                    <input type="search" class="form-control topcoat-search-input--large mb-3" id="search-box" title="search-box" placeholder="Filter" autofocus>
-                    <select name="templateList" class="topcoat-textarea w-100" id="template-list" multiple title="template-list" size="15">
+                    <input type="search" class="form-control topcoat-search-input--large mb-3" id="search-box"
+                           title="search-box" placeholder="Filter" autofocus>
+                    <select name="templateList" class="topcoat-textarea w-100" id="template-list" multiple
+                            title="template-list" size="15">
+<!--
                         <option value="dog">Dog</option>
                         <option value="cat">Cat</option>
                         <option value="hamster">Hamster</option>
+-->
                     </select>
                     <!--<input type="file" class="form-control-file" id="file-control" webkitdirectory>-->
                 </div>
@@ -55,21 +59,10 @@
 <script src="../../node_modules/systemjs/dist/system.js"></script>
 <!--<script type="text/javascript" src="js/main.js"></script>-->
 <script>
-  // console.log("before import.");
   SystemJS.config({
-    packages: {'.': {defaultExtension: 'js'}},
-/*
-    paths: {
-      // paths serve as alias
-      'npm:': '../../node_modules/',
-    },
-    map: {
-      'fs-plus': 'npm:fs-plus/lib/fs-plus.js',
-    },
-*/
+    packages: { ".": { defaultExtension: "js" } },
   });
   SystemJS.import("js/main");
-  // console.log("after import.");
 </script>
 
 <script type="text/javascript" src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
