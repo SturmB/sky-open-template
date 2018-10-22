@@ -1,11 +1,14 @@
 /*global $, window, location, CSInterface, SystemPath, themeManager*/
 
+import * as fs from "fs";
 import * as talker from "./lib/CEPTalker";
 import { CookieManager } from "./lib/CookieManager";
 import "./lib/Template";
 
 (() => {
   "use strict";
+  const resultFs: boolean = fs.existsSync("./");
+  console.log(`Current dir exists: ${resultFs}`);
 
   const csInterface: CSInterface = new CSInterface();
   const cookieManager: CookieManager = new CookieManager();
