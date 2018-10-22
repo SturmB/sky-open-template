@@ -51,7 +51,11 @@
     </div>
 </div>
 
+<!-- Insert this line above script imports -->
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+<script>if (typeof exports === 'object') {window.exports = exports; exports = undefined;}</script>
 
+<!-- extension's imports -->
 <script type="text/javascript" src="js/lib/CSInterface.js"></script>
 <script type="text/javascript" src="../../node_modules/jquery/dist/jquery.slim.min.js"></script>
 
@@ -60,6 +64,10 @@
 
 <script type="text/javascript" src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
 <script type="text/javascript" src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
+<script>if (window.exports) exports = window.exports;</script>
 
 </body>
 </html>
