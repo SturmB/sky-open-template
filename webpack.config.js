@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   mode: "development",
   entry: {
-    'dom_html/src/index': './dom_html/src/index.ts',
+    'dom_html/src/js/main': './dom_html/src/js/main.ts',
     'dom_app/src/app': './dom_app/src/app.ts'
   },
   devtool: "inline-source-map",
@@ -11,10 +11,10 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        include: [path.join(__dirname, './dom_html/src')],
+        include: [path.join(__dirname, './dom_html/src/js')],
         loader: 'ts-loader',
         options: {
-          instance: 'dom_html/src/index',
+          instance: 'dom_html/src/js/main',
           configFile: path.join(path.join(__dirname, './dom_html'), 'tsconfig.json'),
         },
       },

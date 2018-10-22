@@ -14,7 +14,6 @@ import "./lib/Template";
   const cookieManager: CookieManager = new CookieManager();
 
   function init(): void {
-
     /**
      * Event handler for the Open button.
      */
@@ -44,9 +43,12 @@ import "./lib/Template";
     };
 
     const getFiles = (path: string) => {
-      csInterface.evalScript(`getFiles("${path}");`, (json: string) => {
-        setTemplateList(json);
-      });
+      csInterface.evalScript(
+        `getFiles("${path}");`,
+        (json: string | undefined) => {
+          setTemplateList(json);
+        },
+      );
     };
 
     /**
@@ -74,7 +76,6 @@ import "./lib/Template";
     if (templatePath) {
       getFiles(templatePath);
     }
-
   }
 
   init();
