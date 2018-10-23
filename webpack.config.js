@@ -28,5 +28,3 @@ module.exports = {
     filename: '[name].js',
   }
 };
-
-console.log(module.exports.module.rules);
