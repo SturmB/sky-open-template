@@ -26,6 +26,13 @@
   resolved "https://registry.yarnpkg.com/@types/json-js/-/json-js-1.1.0.tgz#869673e34b3778d75648582ee372ac84eff6100c"
   integrity sha512-2Q7NWYRF0X6s5QfYT7omyZBApkUq01jo3qb0QUfDSytEqEbG7kKjnB8JP2dab6H6LCQwLfVfjkxpKJ8wnLoqnw==
 
+"@types/node-dir@^0.0.32":
+  version "0.0.32"
+  resolved "https://registry.yarnpkg.com/@types/node-dir/-/node-dir-0.0.32.tgz#d00d44cd29a4e2698114ff1f33a779d219bdb699"
+  integrity sha512-M0++KmfiQ3DkSwx4O7glGut17ORbb+wuSfxLafMakAv8wmhAazTKb7ghfwYoqhRRErZ2quYQBYIppj5TPGaKVw==
+  dependencies:
+    "@types/node" "*"
+
 "@types/node@*", "@types/node@^10.12.0":
   version "10.12.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.0.tgz#ea6dcbddbc5b584c83f06c60e82736d8fbb0c235"
@@ -1882,7 +1889,7 @@ minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   resolved "https://registry.yarnpkg.com/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
   integrity sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo=
 
-minimatch@^3.0.4:
+minimatch@^3.0.2, minimatch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
@@ -2012,6 +2019,13 @@ nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
+
+node-dir@^0.1.17:
+  version "0.1.17"
+  resolved "https://registry.yarnpkg.com/node-dir/-/node-dir-0.1.17.tgz#5f5665d93351335caabef8f1c554516cf5f1e4e5"
+  integrity sha1-X1Zl2TNRM1yqvvjxxVRRbPXx5OU=
+  dependencies:
+    minimatch "^3.0.2"
 
 node-libs-browser@^2.0.0:
   version "2.1.0"

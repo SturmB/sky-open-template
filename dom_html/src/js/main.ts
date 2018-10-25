@@ -1,14 +1,13 @@
 /*global $, window, location, CSInterface, SystemPath, themeManager*/
 
-import * as fs from "fs";
+// import * as fs from "fs";
+import * as dir from "node-dir";
 import * as talker from "./lib/CEPTalker";
 import { CookieManager } from "./lib/CookieManager";
-import "./lib/Template";
+import { TemplateFile } from "./lib/Template";
 
 (() => {
   "use strict";
-  const resultFs: boolean = fs.existsSync("./");
-  console.log(`Current dir exists: ${resultFs}`);
 
   const csInterface: CSInterface = new CSInterface();
   const cookieManager: CookieManager = new CookieManager();
@@ -28,9 +27,13 @@ import "./lib/Template";
       });
     }
 
-    const setTemplateList = (json: string | undefined) => {
-      if (json) {
-        const fileList: OpenTemplate.TemplateFile[] = JSON.parse(json);
+    /**
+     * Set the list of templates in the Panel.
+     *
+     * @param fileList
+     */
+    const setTemplateList = (fileList: TemplateFile[]) => {
+      if (fileList.length) {
         templateList.empty();
         for (const file of fileList) {
           templateList.append(
@@ -42,13 +45,29 @@ import "./lib/Template";
       }
     };
 
+    /**
+     * Get the list of template files recursively from a given path,
+     * then populate the HTML panel with that list.
+     *
+     * @param path
+     */
     const getFiles = (path: string) => {
-      csInterface.evalScript(
-        `getFiles("${path}");`,
-        (json: string | undefined) => {
-          setTemplateList(json);
-        },
-      );
+      dir.files(path, (err: Error, files: string[]) => {
+        if (err) {
+          throw err;
+        }
+        const ext: string = "ai";
+        const testFilename: string = "myTestFileName.ai";
+        const templatePaths: string[] = files.filter((file) => {
+          return file.split(".").pop() === ext;
+        });
+        const templates: TemplateFile[] = [];
+        for (const template of templatePaths) {
+          templates.push(new TemplateFile(template));
+        }
+        console.log(templates);
+        setTemplateList(templates);
+      });
     };
 
     /**
