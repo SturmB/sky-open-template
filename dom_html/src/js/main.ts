@@ -65,7 +65,7 @@ import { TemplateFile } from "./lib/Template";
         for (const template of templatePaths) {
           templates.push(new TemplateFile(template));
         }
-        console.log(templates);
+        // console.log(templates);
         setTemplateList(templates);
       });
     };
