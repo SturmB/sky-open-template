@@ -22,13 +22,11 @@ if (libFolder.exists) {
     }
 }
 var Talker = SimpleSayer.Talker;
-var TemplateFile = OpenTemplate.TemplateFile;
-function openDocument() {
-    $.writeln("in the openDocument() function.");
-    var fileRef = new File("~/Product Templates (Master)/Art Evaluation Form/Art_Evaluation_Form.indd");
-    $.writeln(fileRef.fullName);
-    var docRef = app.open(fileRef);
-}
+// noinspection JSUnusedGlobalSymbols
+var openDocument = function (template) {
+    var fileRef = new File(template.fullPath);
+    app.open(fileRef);
+};
 function sayHi() {
     var text = "loadJSX 17.";
     $.writeln(text);

@@ -21,17 +21,12 @@ if (libFolder.exists) {
 }
 
 const Talker = SimpleSayer.Talker;
-const TemplateFile = OpenTemplate.TemplateFile;
 
-function openDocument() {
-  $.writeln("in the openDocument() function.");
-  const fileRef = new File(
-    "~/Product Templates (Master)/Art Evaluation Form/Art_Evaluation_Form.indd",
-  );
-  $.writeln(fileRef.fullName);
-
-  const docRef = app.open(fileRef);
-}
+// noinspection JSUnusedGlobalSymbols
+const openDocument = (template: OpenTemplate.TemplateFile) => {
+  const fileRef = new File(template.fullPath);
+  app.open(fileRef);
+};
 
 function sayHi() {
   const text = "loadJSX 17.";

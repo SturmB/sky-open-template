@@ -3,6 +3,5 @@
   <component name="TypeScriptCompiler">
     <option name="recompileOnChanges" value="true" />
     <option name="scopeName" value="dom_app" />
-    <option name="showAllErrors" value="true" />
   </component>
 </project>

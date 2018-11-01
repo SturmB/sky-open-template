@@ -1,9 +1,9 @@
 /*global $, window, location, CSInterface, SystemPath, themeManager*/
 
-// import * as fs from "fs";
 import * as dir from "node-dir";
-import * as talker from "./lib/CEPTalker";
+import { Spinner } from "spin.js";
 import { CookieManager } from "./lib/CookieManager";
+// import "./lib/jquery.blockUI";
 import { TemplateFile } from "./lib/Template";
 
 (() => {
@@ -12,6 +12,35 @@ import { TemplateFile } from "./lib/Template";
   const csInterface: CSInterface = new CSInterface();
   const cookieManager: CookieManager = new CookieManager();
 
+  // Set up a spinner.
+  const spinner: Spinner = new Spinner({ color: "#fff", lines: 12 });
+  const elBody: JQuery<HTMLElement> = $("body");
+  const elSelect: JQuery<HTMLElement> = $("#template-list-wrapper");
+
+  // Set the defaults for BlockUI.
+  // @ts-ignore
+  $.blockUI.defaults = {
+    message: null,
+    onBlock: () => spinner.spin(elBody.get(0)),
+    onUnblock: () => spinner.stop(),
+    overlayCSS: {
+      backgroundColor: "#fff",
+      opacity: 0.3,
+    },
+    showOverlay: true,
+  };
+
+  const openTemplates = (selected: string[]) => {
+    for (const item of selected) {
+      const template: TemplateFile = new TemplateFile(item);
+      const jsonTemplate: string = JSON.stringify(template);
+      csInterface.evalScript(`openDocument(${jsonTemplate})`, (result: any) => {
+        console.log(result);
+      });
+    }
+    $.unblockUI();
+  };
+
   function init(): void {
     /**
      * Event handler for the Open button.
@@ -19,11 +48,11 @@ import { TemplateFile } from "./lib/Template";
     const openButton: JQuery<HTMLElement> = $("#open-button");
     if (openButton) {
       openButton.on("click", () => {
-        const t = new talker.Talker();
-        console.log(t.sayHello());
-        csInterface.evalScript("sayHi();", (res: any) => {
-          console.log(res);
-        });
+        const selected: string[] = templateList.val() as string[];
+        if (selected.length) {
+          $.blockUI();
+          setTimeout(() => openTemplates(selected), 1000);
+        }
       });
     }
 
@@ -52,22 +81,27 @@ import { TemplateFile } from "./lib/Template";
      * @param path
      */
     const getFiles = (path: string) => {
-      dir.files(path, (err: Error, files: string[]) => {
-        if (err) {
-          throw err;
-        }
-        const ext: string = "ai";
-        const testFilename: string = "myTestFileName.ai";
-        const templatePaths: string[] = files.filter((file) => {
-          return file.split(".").pop() === ext;
+      // @ts-ignore
+      elSelect.block({ onBlock: () => spinner.spin(elSelect.get(0)) });
+      setTimeout(() => {
+        dir.files(path, (err: Error, files: string[]) => {
+          if (err) {
+            throw err;
+          }
+          const ext: string = "ai";
+          const templatePaths: string[] = files.filter((file) => {
+            return file.split(".").pop() === ext;
+          });
+          templatePaths.sort();
+          const templates: TemplateFile[] = [];
+          for (const template of templatePaths) {
+            templates.push(new TemplateFile(template));
+          }
+          setTemplateList(templates);
+          // @ts-ignore
+          elSelect.unblock();
         });
-        const templates: TemplateFile[] = [];
-        for (const template of templatePaths) {
-          templates.push(new TemplateFile(template));
-        }
-        // console.log(templates);
-        setTemplateList(templates);
-      });
+      }, 1000);
     };
 
     /**

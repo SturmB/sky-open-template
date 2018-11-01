@@ -13,6 +13,9 @@
     <link id="topcoat" rel="stylesheet">
     <!-- Topcoat overrides (Font, etc) -->
     <link id="topcoat-host" rel="stylesheet" href="css/topcoat-host.css">
+    <!-- spin.js -->
+    <link rel="stylesheet" href="../../node_modules/spin.js/spin.css">
+
     <!-- Actual Panel styling -->
     <link rel="stylesheet" href="css/styles.css">
 
@@ -28,14 +31,17 @@
                     <label for="search-box" id="search-label"></label>
                     <input type="search" class="form-control topcoat-search-input--large mb-3" id="search-box"
                            title="search-box" placeholder="Filter" autofocus>
-                    <select name="templateList" class="topcoat-textarea w-100" id="template-list" multiple
-                            title="template-list" size="17">
-                    </select>
+                    <div id="template-list-wrapper">
+                        <select name="templateList" class="topcoat-textarea w-100" id="template-list" multiple
+                                title="template-list" size="17">
+                        </select>
+                    </div>
                 </div>
             </form>
         </div>
         <div class="custom-file col-6">
             <label class="btn topcoat-button--large w-100" for="file-control">Templates</label>
+            <!--suppress HtmlUnknownAttribute -->
             <input type="file" class="custom-file-input" id="file-control" webkitdirectory>
         </div>
         <div class="col-6">
@@ -50,9 +56,10 @@
 
 <!-- extension's imports -->
 <script type="text/javascript" src="js/lib/CSInterface.js"></script>
-<script type="text/javascript" src="../../node_modules/jquery/dist/jquery.slim.min.js"></script>
+<script type="text/javascript" src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.blockUI.js"></script>
 
-<script type="text/javascript" src="js/lib/themeManager.js"></script>
+<script type="text/javascript" src="js/lib/ThemeManager.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 
 <script type="text/javascript" src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
