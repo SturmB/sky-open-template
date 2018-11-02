@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@fortawesome/fontawesome-pro@^5.4.2":
+  version "5.4.2"
+  resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-pro/-/fontawesome-pro-5.4.2.tgz#af54e8a44d6bd1edc9af2b9dd356cb9a497095d5"
+  integrity sha512-jI8Z9kLMtg4F/9HjlRrPvbikfWLvl7KC/DVyO2OKIijiv4MWQhqnq8HnI1MJgLThRuVL4emm/p4rV3KXZOlCvA==
+
 "@types/fs-plus@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/fs-plus/-/fs-plus-3.0.0.tgz#f41de49714d034bcd973d491d2cf11c9e1f5528d"
