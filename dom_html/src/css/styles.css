@@ -18,6 +18,9 @@
   display: inline;
   margin: 3px 0px 3px 0px; }
 
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: searchfield-cancel-button; }
+
 #file-control {
   height: 0; }
 

@@ -1,10 +1,11 @@
 /*global $, window, location, CSInterface, SystemPath, themeManager*/
 
+import "jquery";
 import * as dir from "node-dir";
 import { Spinner } from "spin.js";
 import { CookieManager } from "./lib/CookieManager";
-// import "./lib/jquery.blockUI";
 import { TemplateFile } from "./lib/Template";
+import { TypeAhead } from "./TypeAhead";
 
 (() => {
   "use strict";
@@ -15,7 +16,10 @@ import { TemplateFile } from "./lib/Template";
   // Set up a spinner.
   const spinner: Spinner = new Spinner({ color: "#fff", lines: 12 });
   const elBody: JQuery<HTMLElement> = $("body");
-  const elSelect: JQuery<HTMLElement> = $("#template-list-wrapper");
+  const elSelectWrapper: JQuery<HTMLElement> = $("#template-list-wrapper");
+  const elSelect: JQuery<HTMLElement> = $("#template-list");
+  const elInput: JQuery<HTMLInputElement> = $("#search-box");
+  const typeAhead = new TypeAhead(elSelect, elInput);
 
   // Set the defaults for BlockUI.
   // @ts-ignore
@@ -42,6 +46,7 @@ import { TemplateFile } from "./lib/Template";
   };
 
   function init(): void {
+    // noinspection JSMismatchedCollectionQueryUpdate
     /**
      * Event handler for the Open button.
      */
@@ -82,7 +87,9 @@ import { TemplateFile } from "./lib/Template";
      */
     const getFiles = (path: string) => {
       // @ts-ignore
-      elSelect.block({ onBlock: () => spinner.spin(elSelect.get(0)) });
+      elSelectWrapper.block({
+        onBlock: () => spinner.spin(elSelectWrapper.get(0)),
+      });
       setTimeout(() => {
         dir.files(path, (err: Error, files: string[]) => {
           if (err) {
@@ -99,7 +106,12 @@ import { TemplateFile } from "./lib/Template";
           }
           setTemplateList(templates);
           // @ts-ignore
-          elSelect.unblock();
+          elSelectWrapper.unblock();
+          elInput.off();
+          typeAhead.setOptionsOriginal();
+          elInput.on("keyup change reset search", () => {
+            typeAhead.filterOptionsIn(elSelect);
+          });
         });
       }, 1000);
     };
