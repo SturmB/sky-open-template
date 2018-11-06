@@ -10,16 +10,17 @@ import { TypeAhead } from "./TypeAhead";
 (() => {
   "use strict";
 
+  // Set up constants.
   const csInterface: CSInterface = new CSInterface();
   const cookieManager: CookieManager = new CookieManager();
-
-  // Set up a spinner.
   const spinner: Spinner = new Spinner({ color: "#fff", lines: 12 });
   const elBody: JQuery<HTMLElement> = $("body");
   const elSelectWrapper: JQuery<HTMLElement> = $("#template-list-wrapper");
   const elSelect: JQuery<HTMLElement> = $("#template-list");
   const elInput: JQuery<HTMLInputElement> = $("#search-box");
   const typeAhead = new TypeAhead(elSelect, elInput);
+  const nonSelectHeight = 151;
+  const selectLineHeight = 20;
 
   // Set the defaults for BlockUI.
   // @ts-ignore
@@ -34,21 +35,33 @@ import { TypeAhead } from "./TypeAhead";
     showOverlay: true,
   };
 
-  const openTemplates = (selected: string[]) => {
+  /**
+   * Calls the host application to open all of the files in the given list of full pathnames.
+   *
+   * @param {string[]} selected - The list of full pathnames as an array of strings.
+   */
+  const openTemplates = (selected: string[]): void => {
     for (const item of selected) {
       const template: TemplateFile = new TemplateFile(item);
       const jsonTemplate: string = JSON.stringify(template);
-      csInterface.evalScript(`openDocument(${jsonTemplate})`, (result: any) => {
-        console.log(result);
-      });
+      csInterface.evalScript(
+        `openDocument(${jsonTemplate})`,
+        (): void => {
+          // console.log(result);
+        },
+      );
     }
     $.unblockUI();
   };
 
+  /**
+   * Initialize the extension panel.
+   */
   function init(): void {
     // noinspection JSMismatchedCollectionQueryUpdate
     /**
      * Event handler for the Open button.
+     *
      */
     const openButton: JQuery<HTMLElement> = $("#open-button");
     if (openButton) {
@@ -62,11 +75,11 @@ import { TypeAhead } from "./TypeAhead";
     }
 
     /**
-     * Set the list of templates in the Panel.
+     * Set the list of templates in the Panel as Option elements.
      *
-     * @param fileList
+     * @param {TemplateFile[]} fileList - The list of templates.
      */
-    const setTemplateList = (fileList: TemplateFile[]) => {
+    const setTemplateList = (fileList: TemplateFile[]): void => {
       if (fileList.length) {
         templateList.empty();
         for (const file of fileList) {
@@ -83,9 +96,9 @@ import { TypeAhead } from "./TypeAhead";
      * Get the list of template files recursively from a given path,
      * then populate the HTML panel with that list.
      *
-     * @param path
+     * @param {string} path - The path from which to obtain the list of files.
      */
-    const getFiles = (path: string) => {
+    const getFiles = (path: string): void => {
       // @ts-ignore
       elSelectWrapper.block({
         onBlock: () => spinner.spin(elSelectWrapper.get(0)),
@@ -118,6 +131,7 @@ import { TypeAhead } from "./TypeAhead";
 
     /**
      * Event handler for the template folder selection button.
+     *
      */
     const templateButton: JQuery<HTMLElement> = $("#file-control");
     const templateList: JQuery<HTMLElement> = $("#template-list");
@@ -135,12 +149,40 @@ import { TypeAhead } from "./TypeAhead";
       });
     }
 
+    /**
+     * Initialize the theme (colors, GUI, look & feel, etc.)
+     *
+     */
     themeManager.init();
 
+    /**
+     * Upon starting the extension, obtain an existing list of files
+     * if the path to them has already been set.
+     *
+     */
     const templatePath: string | null = cookieManager.get();
     if (templatePath) {
       getFiles(templatePath);
     }
+
+    /**
+     * Event handler for when the extension panel is re-sized.
+     * Re-sizes the Select[multiple] element to fill the space.
+     *
+     */
+    const resizeSelect = (): void => {
+      const numLines = Math.floor(
+        (window.innerHeight - nonSelectHeight) / selectLineHeight,
+      );
+      elSelect.attr("size", numLines);
+    };
+
+    /**
+     * Resize the Select[multiple] element upon startup of the extension panel
+     * and assign the handler to the event when the panel is re-sized.
+     */
+    $(resizeSelect);
+    $(window).on("resize", resizeSelect);
   }
 
   init();
