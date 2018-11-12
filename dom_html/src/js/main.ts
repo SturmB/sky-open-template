@@ -1,9 +1,9 @@
 /*global $, window, location, CSInterface, SystemPath, themeManager*/
 
-import "jquery";
-import * as dir from "node-dir";
-import { Spinner } from "spin.js";
 import { CookieManager } from "./lib/CookieManager";
+import "./lib/jquery";
+import * as dir from "./lib/node-dir";
+import { Spinner } from "./lib/spin.js";
 import { TemplateFile } from "./lib/Template";
 import { TypeAhead } from "./TypeAhead";
 

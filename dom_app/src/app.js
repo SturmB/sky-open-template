@@ -1,6 +1,6 @@
 "use strict";
 /*global JSON*/
-/// <reference types="../../node_modules/types-for-adobe/Illustrator/2015.3"/>
+/// <reference types="./lib/types-for-adobe/Illustrator/2015.3"/>
 /// <reference path="./lib/json2.d.ts"/>
 /// <reference path="./lib/Template.ts"/>
 /**
@@ -27,6 +27,6 @@ if (libFolder.exists) {
  * @param {OpenTemplate.TemplateFile} template - The file to open.
  */
 var openDocument = function (template) {
-    var fileRef = new File(template.fullPath);
-    app.open(fileRef);
+    var  = new (.);
+    .();
 };

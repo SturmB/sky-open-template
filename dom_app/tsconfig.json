@@ -4,6 +4,6 @@
     "noLib": true,
     "strict": true,
     "target": "es3",
-    "typeRoots": ["../node_modules/types-for-adobe/Illustrator/2015.3"]
+    "typeRoots": ["./src/lib/types-for-adobe/Illustrator/2015.3"]
   }
 }
