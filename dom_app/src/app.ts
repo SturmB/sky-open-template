@@ -1,5 +1,5 @@
 /*global JSON*/
-/// <reference types="./lib/types-for-adobe/Illustrator/2015.3"/>
+/// <reference types="../../node_modules/types-for-adobe/Illustrator/2015.3"/>
 /// <reference path="./lib/json2.d.ts"/>
 /// <reference path="./lib/Template.ts"/>
 
