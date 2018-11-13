@@ -28,6 +28,7 @@ set('dev_dir', '~/Development');
 
 // License file location
 set('license_file', '{{application}}.p12');
+set('license', '{{dev_dir}}/{{license_file}}');
 
 // License password
 set('license_pwd', 'ncc1701');
@@ -62,18 +63,10 @@ task('remover', [
     'locker:remove'
 ]);
 
-desc('Copy packager files.');
-task('packager:copy', function () {
-    $license_not_exists = test('[ ! -f {{deploy_path}}/{{license_file}} ]');
-    if ($license_not_exists) {
-        run('cp {{extension_dir}}/{{license_file}} {{deploy_path}}/{{license_file}}');
-    }
-});
-
 desc('Run the packager.');
-task('packager:run', function () {
+task('package', function () {
     cd('{{deploy_path}}');
-    run('{{packager}} -sign current {{application}}.zxp {{deploy_path}}/{{license_file}} {{license_pwd}} -tsa {{timestamp_url}}');
+    run('{{packager}} -sign current {{application}}.zxp {{license}} {{license_pwd}} -tsa {{timestamp_url}}');
 });
 
 
@@ -91,8 +84,7 @@ task('deploy', [
     'remover',
     'deploy:unlock',
     'cleanup',
-    'packager:copy',
-    'packager:run',
+    'package',
     'success'
 ]);
 
