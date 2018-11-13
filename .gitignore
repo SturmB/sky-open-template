@@ -168,6 +168,7 @@ Temporary Items
 .apdisk
 
 ### Typically large master files (including Adobe formats)
+assets-raw/
 *.psd
 *.psb
 *.tif
