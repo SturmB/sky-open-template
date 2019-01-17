@@ -5,7 +5,8 @@ export class TemplateFile {
 
   constructor(fullPath: string) {
     this.fullPath = fullPath;
-    const fn: string | undefined = fullPath.split("/").pop();
+    const osFixedPath: string = fullPath.replace(/\\/g, "/");
+    const fn: string | undefined = osFixedPath.split("/").pop();
     this.fileName = fn === undefined ? "File name malformed" : fn;
   }
 
