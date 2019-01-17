@@ -142,11 +142,11 @@ import { TypeAhead } from "./TypeAhead";
         if (files.length) {
           // @ts-ignore
           const filePath: string = files[0].path;
-          console.log("filePath: " + filePath);
+          // console.log("filePath: " + filePath);
           const osFixedPath: string = filePath.replace(/\\/g, "/");
-          console.log("osFixedPath: " + osFixedPath);
+          // console.log("osFixedPath: " + osFixedPath);
           const path: string = osFixedPath.substr(0, osFixedPath.lastIndexOf("/"));
-          console.log("Fixed path: " + path);
+          // console.log("Fixed path: " + path);
           cookieManager.set(path);
           getFiles(path);
         }
