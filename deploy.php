@@ -66,6 +66,10 @@ task('remover', [
 desc('Run the packager.');
 task('package', function () {
     cd('{{deploy_path}}');
+    // Remove the existing package first, if it exists.
+    if (test('[ -f {{application}}.zxp ]')) {
+        run('rm -f {{application}}.zxp');
+    }
     run('{{packager}} -sign current {{application}}.zxp {{license}} {{license_pwd}} -tsa {{timestamp_url}}');
 });
 
