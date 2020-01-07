@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ExtensionList>
-<Extension Id="com.skyunlimitedinc.open-template.panel">
-    <HostList>
-        <Host Name="ILST" Port="8003"/>
-    </HostList>
-</Extension>
-</ExtensionList>
