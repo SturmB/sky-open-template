@@ -83,7 +83,7 @@
                     <Icons>
                         <Icon Type="Normal">./img/icon-open-template-mediumlight.png</Icon>
                         <Icon Type="RollOver">./img/icon-open-template-mediumlight.png</Icon>
-						<Icon Type="Disabled">./icons/iconDisabled.png</Icon>
+						<Icon Type="Disabled">./img/icon-open-template-dark.png</Icon>
                         <Icon Type="DarkNormal">./img/icon-open-template-dark.png</Icon>
                         <Icon Type="DarkRollOver">./img/icon-open-template-dark.png</Icon>
                     </Icons>

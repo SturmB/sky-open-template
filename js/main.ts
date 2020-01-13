@@ -24,7 +24,7 @@ import { TypeAhead } from "./libs/TypeAhead";
   const elSelect: JQuery<HTMLElement> = $("#template-list");
   const elInput: JQuery<HTMLInputElement> = $("#search-box");
   const typeAhead = new TypeAhead(elSelect, elInput);
-  const nonSelectHeight = 151;
+  const nonSelectHeight = 180;
   const selectLineHeight = 20;
 
   // Set the defaults for BlockUI.
@@ -60,7 +60,21 @@ import { TypeAhead } from "./libs/TypeAhead";
    * Initialize the extension panel.
    */
   function init(): void {
-    // noinspection JSMismatchedCollectionQueryUpdate
+    /**
+     * Event handler for the Select element.
+     * Mostly just for double-clicking an Option in the Select Element.
+     *
+     */
+    if (elSelect) {
+      elSelect.dblclick(function(this: any): void {
+        const selected: string[] = templateList.val() as string[];
+        if (selected.length) {
+          $.blockUI();
+          setTimeout(() => openTemplates(selected), 1000);
+        }
+      });
+    }
+
     /**
      * Event handler for the Open button.
      *

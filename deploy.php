@@ -21,10 +21,10 @@ set('shared_dirs', []);
 set('writable_dirs', []);
 
 // Extension location
-set('extension_dir', '/Library/Application\ Support/Adobe/CEP/extensions');
+set('extension_dir', ' /mnt/c/Users/christopher.mcgee/AppData/Roaming/Adobe/CEP/extensions');
 
 // Development location
-set('dev_dir', '~/Development');
+set('dev_dir', '~/winhome/dev/Projects');
 
 // License file location
 set('license_file', '{{application}}.p12');
@@ -49,11 +49,15 @@ localhost()
 // Tasks
 desc('Remove debugging file.');
 task('undebug', function () {
+    // Remove the debugging file, if it exists.
+    if (test('[ -f {{release_path}}/.debug ]')) {
     run('rm -f {{release_path}}/.debug');
 });
 
 desc('Remove locker.');
 task('locker:remove', function () {
+    // Remove the locker folder, if it exists.
+    if (test('[ -d {{release_path}}/locker ]')) {
     run('rm -rf {{release_path}}/locker');
 });
 
@@ -66,7 +70,7 @@ task('remover', [
 desc('Run the packager.');
 task('package', function () {
     cd('{{deploy_path}}');
-    // Remove the existing package first, if it exists.
+    // Remove the existing package, if it exists.
     if (test('[ -f {{application}}.zxp ]')) {
         run('rm -f {{application}}.zxp');
     }

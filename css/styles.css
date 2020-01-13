@@ -12,7 +12,10 @@ body {
 }
 
 input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: searchfield-cancel-button;
+  -webkit-appearance: none;
+  width: 1.5em;
+  height: 1.5em;
+  background: no-repeat center/80% url(../img/times-circle-solid.svg);
 }
 
 #file-control {
