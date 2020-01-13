@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "noLib": true,
+    "strict": true,
+    "target": "es3",
+    "jsx": "preserve",
+    "types": [],
+    "typeRoots": [
+      "../node_modules/types-for-adobe/InDesign/2018",
+      "../node_modules/types-for-adobe/Illustrator/2015.3"
+    ]
+  }
+}

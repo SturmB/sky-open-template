@@ -4,18 +4,18 @@ module.exports = {
   mode: "development",
   target: "node-webkit",
   entry: {
-    'dom_html/src/js/main': './dom_html/src/js/main.ts'
+    'js/main': './js/main.ts'
   },
   devtool: "inline-source-map",
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        include: [path.join(__dirname, './dom_html/src/js')],
+        include: [path.join(__dirname, './js')],
         loader: 'ts-loader',
         options: {
-          instance: 'dom_html/src/js/main',
-          configFile: path.join(path.join(__dirname, './dom_html'), 'tsconfig.json'),
+          instance: 'js/main',
+          configFile: path.join(path.join(__dirname, './js'), 'tsconfig.json'),
         },
       }
     ]

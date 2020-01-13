@@ -8,16 +8,16 @@
   "license": "MIT",
   "devDependencies": {
     "@fortawesome/fontawesome-pro": "^5.4.2",
-    "@types/jquery": "^3.3.11",
+    "@types/jquery": "^3.3.31",
     "@types/node": "^10.12.0",
     "awesome-typescript-loader": "^5.2.1",
     "commonjs": "^0.0.1",
-    "prettier": "^1.14.3",
-    "ts-loader": "^5.2.1",
-    "tslint": "^5.11.0",
-    "typescript": "^3.1.1",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2",
+    "prettier": "^1.18.2",
+    "ts-loader": "^6.2.0",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9",
     "yuicompressor": "^2.4.8"
   },
   "dependencies": {
@@ -31,13 +31,14 @@
     "file-system": "^2.2.2",
     "fs-plus": "^3.0.2",
     "jquery": "^3.3.1",
+    "jquery-blockui": "^2.7.0",
     "js-cookie": "^2.2.0",
     "json2": "^0.4.0",
     "node-dir": "^0.1.17",
     "popper.js": "^1.14.4",
     "spin.js": "^4.0.0",
     "systemjs": "0.21",
-    "types-for-adobe": "^1.2.0"
+    "types-for-adobe": "^1.5.0"
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",

@@ -1,27 +1,60 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<!--suppress XmlUnusedNamespaceDeclaration, XmlUnboundNsPrefix -->
-<ExtensionManifest ExtensionBundleId="com.skyunlimitedinc.open-template" ExtensionBundleVersion="1.0.0" Version="7.0"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest Version="9.0" ExtensionBundleId="com.skyunlimitedinc.open-template" ExtensionBundleVersion="1.0.0" ExtensionBundleName="Open Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <ExtensionList>
-        <Extension Id="com.skyunlimitedinc.open-template.panel" Version="2018.0.1"/>
+        <Extension Id="com.skyunlimitedinc.open-template.panel" Version="2020.0.0"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
-            <Host Name="ILST" Version="[21.0,23.9]"/>
+			
+            <!-- Uncomment tags according to the apps you want your panel to support 
+			Make sure to change these tags to use realistic version ranges before releasing your extensions, not 99.9!
+			You may also need to change the CEP version in order to support certain apps. -->
+            
+            <!-- Photoshop -->
+            <!-- <Host Name="PHXS" Version="[16.0,99.9]" /> -->
+            <!-- <Host Name="PHSP" Version="[16.0,99.9]" /> -->
+            
+            <!-- Illustrator -->
+            <Host Name="ILST" Version="[21.0,24.9]" />
+            
+            <!-- InDesign -->
+            <!-- <Host Name="IDSN" Version="[10.0,99.9]" /> -->
+            
+            <!-- InCopy -->
+            <!-- <Host Name="AICY" Version="[10.0,99.9]" /> -->  
+            
+            <!-- Premiere -->
+            <!-- <Host Name="PPRO" Version="[8.0,99.9]" /> -->
+            
+            <!-- AfterEffects -->
+            <!-- <Host Name="AEFT" Version="[13.0,99.9]" /> -->
+            
+            <!-- PRELUDE -->            
+            <!-- <Host Name="PRLD" Version="[3.0,99.9]" />   -->
+            
+            <!-- Animate -->
+            <!-- <Host Name="FLPR" Version="[14.0,99.9]" /> -->
+            
+            <!-- Audition -->
+            <!-- <Host Name="AUDT" Version="[8.0,99.9]" /> -->
+            
+            <!-- Dreamweaver -->
+            <!-- <Host Name="DRWV" Version="[16.0,99.9]" /> -->
+
         </HostList>
         <LocaleList>
             <Locale Code="All"/>
         </LocaleList>
         <RequiredRuntimeList>
-            <RequiredRuntime Name="CSXS" Version="7.0"/>
+            <RequiredRuntime Name="CSXS" Version="9.0"/>
         </RequiredRuntimeList>
     </ExecutionEnvironment>
     <DispatchInfoList>
         <Extension Id="com.skyunlimitedinc.open-template.panel">
             <DispatchInfo>
                 <Resources>
-                    <MainPath>./dom_html/src/index.html</MainPath>
-                    <ScriptPath>./dom_app/src/app.js</ScriptPath>
+                    <MainPath>./index.html</MainPath>
+                    <ScriptPath>./jsx/app.js</ScriptPath>
                     <CEFCommandLine>
                         <Parameter>--enable-nodejs</Parameter>
                         <Parameter>--mixed-context</Parameter>
@@ -48,10 +81,11 @@
                         </MinSize>
                     </Geometry>
                     <Icons>
-                        <Icon Type="Normal">./dom_html/src/img/icon-open-template-mediumlight.png</Icon>
-                        <Icon Type="RollOver">./dom_html/src/img/icon-open-template-mediumlight.png</Icon>
-                        <Icon Type="DarkNormal">./dom_html/src/img/icon-open-template-dark.png</Icon>
-                        <Icon Type="DarkRollOver">./dom_html/src/img/icon-open-template-dark.png</Icon>
+                        <Icon Type="Normal">./img/icon-open-template-mediumlight.png</Icon>
+                        <Icon Type="RollOver">./img/icon-open-template-mediumlight.png</Icon>
+						<Icon Type="Disabled">./icons/iconDisabled.png</Icon>
+                        <Icon Type="DarkNormal">./img/icon-open-template-dark.png</Icon>
+                        <Icon Type="DarkRollOver">./img/icon-open-template-dark.png</Icon>
                     </Icons>
                 </UI>
             </DispatchInfo>

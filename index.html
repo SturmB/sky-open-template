@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- Panel Styles -->
+  <!-- Topcoat -->
+  <link rel="stylesheet" href="css/topcoat-desktop-dark.min.css">
+  <!-- spin.js -->
+  <link rel="stylesheet" href="css/spin.css">
+  <!-- Actual Panel styling -->
+  <link id="hostStyle" rel="stylesheet" href="css/styles.css">
+
+  <title>Open Template</title>
+</head>
+
+<body class="hostElt">
+  <div id="content" class="container">
+    <div class="row">
+      <div class="col-12">
+        <form action="">
+          <div class="form-group">
+            <label for="search-box" id="search-label"></label>
+            <input type="search" class="form-control topcoat-search-input--large mb-3" id="search-box"
+              title="search-box" placeholder="Filter" autofocus data-clear-btn="true">
+            <div id="template-list-wrapper">
+              <label for="template-list"></label>
+              <select name="templateList" class="topcoat-textarea w-100" id="template-list" multiple
+                title="template-list" size="17">
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="custom-file col-6">
+        <label class="btn topcoat-button--large w-100" for="file-control">Templates</label>
+        <!--suppress HtmlUnknownAttribute -->
+        <input type="file" class="custom-file-input" id="file-control" webkitdirectory>
+      </div>
+      <div class="col-6">
+        <button id="open-button" type="submit" class="btn topcoat-button--large--cta w-100">Open</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Insert these lines above script imports -->
+  <script>
+    if (typeof module === 'object') { window.module = module; module = undefined; }
+  </script>
+  <script>
+    if (typeof exports === 'object') { window.exports = exports; exports = undefined; }
+  </script>
+
+  <!-- extension's imports -->
+  <script src="js/libs/CSInterface.js"></script>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+  <!-- jQuery BlockUI Plugin from http://jquery.malsup.com/block/ -->
+  <script type="text/javascript" src="node_modules/block-ui/jquery.blockUI.js"></script>
+
+  <script src="js/libs/themeManager.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Popper.js from https://popper.js.org/ -->
+  <script type="text/javascript" src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <!-- Bootstrap from https://getbootstrap.com/ -->
+  <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- Insert these lines after script imports -->
+  <script>
+    if (window.module) module = window.module;
+  </script>
+  <script>
+    if (window.exports) exports = window.exports;
+  </script>
+
+</body>
+
+</html>
