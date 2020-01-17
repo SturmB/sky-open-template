@@ -1,6 +1,6 @@
 {
   "name": "sky-open-template",
-  "version": "2018.0.1",
+  "version": "1.0.1",
   "description": "Adobe Illustrator extension to quickly open template files. Only works on the Sky Unlimited, Inc. network.",
   "private": true,
   "repository": "https://github.com/SturmB/sky-open-template.git",
