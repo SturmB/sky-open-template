@@ -326,3 +326,7 @@ assets-raw/
 *.tif
 *.ai
 *.eps
+
+### CEP extension panel files
+*.zxp
+*.p12
