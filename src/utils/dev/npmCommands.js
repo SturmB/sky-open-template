@@ -14,7 +14,17 @@ const BOXEN_OPTS = {
   borderStyle: "round"
 };
 
-const osPrefix = process.platform === "win32" ? "" : `./`;
+let osPrefix = "";
+switch (process.platform) {
+  case "win32":
+    osPrefix = ``;
+    break;
+  case "linux":
+    osPrefix = `cmd.exe /c `;
+    break;
+  default:
+    osPrefix = `./`;
+}
 
 // Spinner component for terminal
 const ora = require("ora");
@@ -480,16 +490,16 @@ function signCommands(path, rootpath, password, includeZip) {
     );
     setTimeout(() => {
       console.log(
-        `${osPrefix}ZXPSignCmd -sign ./${path}-tmp ./${rootpath}/archive/${path}.zxp ./${rootpath}/archive/temp1.p12 ${password} -tsa http://time.certum.pl`
+        `${osPrefix}ZXPSignCmd -sign ./${path}-tmp ./${rootpath}/archive/${path}.zxp ./${rootpath}/archive/temp1.p12 ${password} -tsa http://timestamp.digicert.com`
       );
       shell.exec(
-        `${osPrefix}ZXPSignCmd -sign ./${path}-tmp ./${rootpath}/archive/${path}.zxp ./${rootpath}/archive/temp1.p12 ${password} -tsa http://time.certum.pl`
+        `${osPrefix}ZXPSignCmd -sign ./${path}-tmp ./${rootpath}/archive/${path}.zxp ./${rootpath}/archive/temp1.p12 ${password} -tsa http://timestamp.digicert.com`
       );
 
       if (includeZip)
         setTimeout(() => {
           shell.exec(
-            `${osPrefix}ZXPSignCmd -sign ./${path}-tmp ./${rootpath}/archive/${path}.zip ./${rootpath}/archive/temp1.p12 ${password} -tsa http://time.certum.pl`
+            `${osPrefix}ZXPSignCmd -sign ./${path}-tmp ./${rootpath}/archive/${path}.zip ./${rootpath}/archive/temp1.p12 ${password} -tsa http://timestamp.digicert.com`
           );
         }, 1000);
       setTimeout(() => {
