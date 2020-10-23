@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ExtensionManifest Version="9.0" ExtensionBundleId="com.skyunlimitedinc.open-template" ExtensionBundleVersion="1.1.0" ExtensionBundleName="Open Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ExtensionManifest Version="10.0" ExtensionBundleId="com.skyunlimitedinc.open-template" ExtensionBundleVersion="2021.1.0" ExtensionBundleName="Open Template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <ExtensionList>
-        <Extension Id="com.skyunlimitedinc.open-template.panel" Version="2020.0.0"/>
+        <Extension Id="com.skyunlimitedinc.open-template.panel" Version="2021.0.0"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
@@ -15,7 +15,7 @@
             <!-- <Host Name="PHSP" Version="[16.0,99.9]" /> -->
             
             <!-- Illustrator -->
-            <Host Name="ILST" Version="[21.0,24.9]" />
+            <Host Name="ILST" Version="[21.0,25.99]" />
             
             <!-- InDesign -->
             <!-- <Host Name="IDSN" Version="[10.0,99.9]" /> -->
