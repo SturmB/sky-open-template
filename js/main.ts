@@ -60,6 +60,7 @@ import { TypeAhead } from "./libs/TypeAhead";
    * Initialize the extension panel.
    */
   function init(): void {
+    // console.log("init.");
     /**
      * Event handler for the Select element.
      * Mostly just for double-clicking an Option in the Select Element.
@@ -153,19 +154,21 @@ import { TypeAhead } from "./libs/TypeAhead";
     const templateList: JQuery<HTMLElement> = $("#template-list");
     if (templateButton) {
       templateButton.on("change", () => {
+        console.log("button pressed");
         // @ts-ignore
         const files: FileList = templateButton[0].files;
+        console.log("files: " + files);
         if (files.length) {
           // @ts-ignore
           const filePath: string = files[0].path;
-          // console.log("filePath: " + filePath);
+          console.log("filePath: " + filePath);
           const osFixedPath: string = filePath.replace(/\\/g, "/");
-          // console.log("osFixedPath: " + osFixedPath);
+          console.log("osFixedPath: " + osFixedPath);
           const path: string = osFixedPath.substr(
             0,
             osFixedPath.lastIndexOf("/"),
           );
-          // console.log("Fixed path: " + path);
+          console.log("Fixed path: " + path);
           cookieManager.set(path);
           getFiles(path);
         }
