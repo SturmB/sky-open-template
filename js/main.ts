@@ -151,14 +151,23 @@ import { TypeAhead } from "./libs/TypeAhead";
      *
      */
     const templateButton: JQuery<HTMLElement> = $("#file-control");
+    console.log("templateButton:");
+    console.log(templateButton);
     const templateList: JQuery<HTMLElement> = $("#template-list");
     if (templateButton) {
+      console.log("templateButton is.");
+
       templateButton.on("change", () => {
         console.log("button pressed");
-        // @ts-ignore
-        const files: FileList = templateButton[0].files;
-        console.log("files: " + files);
-        if (files.length) {
+        const selection = window.cep.fs.showOpenDialogEx(
+          false, // allowMultipleSelection
+          true, // chooseDirectory
+          "Select your preferred download location", // title
+          getSystemPath(SystemPath.MY_DOCUMENTS), // initialPath
+          undefined, // fileTypes
+        );
+        console.log("selection: " + selection);
+        if (selection.length) {
           // @ts-ignore
           const filePath: string = files[0].path;
           console.log("filePath: " + filePath);
