@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ExtensionManifest Version="10.0"
+<ExtensionManifest Version="9.0"
                    ExtensionBundleId="com.skyunlimitedinc.open-template"
                    ExtensionBundleVersion="2021.1.1"
                    ExtensionBundleName="Open Template"
@@ -50,7 +50,7 @@
             <Locale Code="All"/>
         </LocaleList>
         <RequiredRuntimeList>
-            <RequiredRuntime Name="CSXS" Version="10.0"/>
+            <RequiredRuntime Name="CSXS" Version="9.0"/>
         </RequiredRuntimeList>
     </ExecutionEnvironment>
     <DispatchInfoList>
