@@ -157,29 +157,27 @@ import { TypeAhead } from "./libs/TypeAhead";
     if (templateButton) {
       console.log("templateButton is.");
 
-      templateButton.on("change", () => {
+      templateButton.on("click", () => {
         console.log("button pressed");
+        // @ts-ignore: `cep` _does_ exist on `window`.
         const selection = window.cep.fs.showOpenDialogEx(
           false, // allowMultipleSelection
           true, // chooseDirectory
-          "Select your preferred download location", // title
+          "Select the template folder", // title
           csInterface.getSystemPath(SystemPath.MY_DOCUMENTS), // initialPath
           undefined, // fileTypes
         );
-        console.log("selection: " + selection);
-        if (selection.length) {
-          // @ts-ignore
-          const filePath: string = files[0].path;
+        console.log("selection: ");
+        console.log(selection);
+        console.log("selection.data.length: ", selection.data.length);
+        console.log("selection.data.length (bool): ", !!selection.data.length);
+        if (!!selection.data.length) {
+          const filePath: string = selection.data[0];
           console.log("filePath: " + filePath);
           const osFixedPath: string = filePath.replace(/\\/g, "/");
           console.log("osFixedPath: " + osFixedPath);
-          const path: string = osFixedPath.substr(
-            0,
-            osFixedPath.lastIndexOf("/"),
-          );
-          console.log("Fixed path: " + path);
-          cookieManager.set(path);
-          getFiles(path);
+          cookieManager.set(osFixedPath);
+          getFiles(osFixedPath);
         }
       });
     }
