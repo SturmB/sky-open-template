@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionManifest Version="10.0"
                    ExtensionBundleId="com.skyunlimitedinc.open-template"
-                   ExtensionBundleVersion="2021.1.0"
+                   ExtensionBundleVersion="2021.1.1"
                    ExtensionBundleName="Open Template"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <ExtensionList>
-        <Extension Id="com.skyunlimitedinc.open-template.panel" Version="2021.1.0"/>
+        <Extension Id="com.skyunlimitedinc.open-template.panel" Version="2021.1.1"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
