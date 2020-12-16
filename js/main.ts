@@ -2,7 +2,7 @@
  * This file contains the main panel functions and calls to all of its modules.
  */
 
-import { CSInterface } from "csinterface-ts";
+import { CSInterface, SystemPath } from "csinterface-ts";
 import * as dir from "node-dir";
 import { Spinner } from "spin.js";
 import { CookieManager } from "./libs/CookieManager";
@@ -163,7 +163,7 @@ import { TypeAhead } from "./libs/TypeAhead";
           false, // allowMultipleSelection
           true, // chooseDirectory
           "Select your preferred download location", // title
-          getSystemPath(SystemPath.MY_DOCUMENTS), // initialPath
+          csInterface.getSystemPath(SystemPath.MY_DOCUMENTS), // initialPath
           undefined, // fileTypes
         );
         console.log("selection: " + selection);
