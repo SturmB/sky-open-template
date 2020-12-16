@@ -68,7 +68,7 @@ import { TypeAhead } from "./libs/TypeAhead";
      */
     if (elSelect) {
       elSelect.dblclick(function(this: any): void {
-        const selected: string[] = templateList.val() as string[];
+        const selected: string[] = elSelect.val() as string[];
         if (selected.length) {
           $.blockUI();
           setTimeout(() => openTemplates(selected), 1000);
@@ -83,7 +83,7 @@ import { TypeAhead } from "./libs/TypeAhead";
     const openButton: JQuery<HTMLElement> = $("#open-button");
     if (openButton) {
       openButton.on("click", () => {
-        const selected: string[] = templateList.val() as string[];
+        const selected: string[] = elSelect.val() as string[];
         if (selected.length) {
           $.blockUI();
           setTimeout(() => openTemplates(selected), 1000);
@@ -98,9 +98,9 @@ import { TypeAhead } from "./libs/TypeAhead";
      */
     const setTemplateList = (fileList: TemplateFile[]): void => {
       if (fileList.length) {
-        templateList.empty();
+        elSelect.empty();
         for (const file of fileList) {
-          templateList.append(
+          elSelect.append(
             $("<option />")
               .val(file.fullPath)
               .text(file.fileName),
@@ -153,7 +153,6 @@ import { TypeAhead } from "./libs/TypeAhead";
     const templateButton: JQuery<HTMLElement> = $("#file-control");
     console.log("templateButton:");
     console.log(templateButton);
-    const templateList: JQuery<HTMLElement> = $("#template-list");
     if (templateButton) {
       console.log("templateButton is.");
 
