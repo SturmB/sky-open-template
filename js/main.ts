@@ -2,7 +2,7 @@
  * This file contains the main panel functions and calls to all of its modules.
  */
 
-import { CSInterface } from "csinterface-ts";
+import { CSInterface, SystemPath } from "csinterface-ts";
 import * as dir from "node-dir";
 import { Spinner } from "spin.js";
 import { CookieManager } from "./libs/CookieManager";
@@ -68,7 +68,7 @@ import { TypeAhead } from "./libs/TypeAhead";
      */
     if (elSelect) {
       elSelect.dblclick(function(this: any): void {
-        const selected: string[] = templateList.val() as string[];
+        const selected: string[] = elSelect.val() as string[];
         if (selected.length) {
           $.blockUI();
           setTimeout(() => openTemplates(selected), 1000);
@@ -83,7 +83,7 @@ import { TypeAhead } from "./libs/TypeAhead";
     const openButton: JQuery<HTMLElement> = $("#open-button");
     if (openButton) {
       openButton.on("click", () => {
-        const selected: string[] = templateList.val() as string[];
+        const selected: string[] = elSelect.val() as string[];
         if (selected.length) {
           $.blockUI();
           setTimeout(() => openTemplates(selected), 1000);
@@ -98,9 +98,9 @@ import { TypeAhead } from "./libs/TypeAhead";
      */
     const setTemplateList = (fileList: TemplateFile[]): void => {
       if (fileList.length) {
-        templateList.empty();
+        elSelect.empty();
         for (const file of fileList) {
-          templateList.append(
+          elSelect.append(
             $("<option />")
               .val(file.fullPath)
               .text(file.fileName),
@@ -151,26 +151,32 @@ import { TypeAhead } from "./libs/TypeAhead";
      *
      */
     const templateButton: JQuery<HTMLElement> = $("#file-control");
-    const templateList: JQuery<HTMLElement> = $("#template-list");
+    console.log("templateButton:");
+    console.log(templateButton);
     if (templateButton) {
-      templateButton.on("change", () => {
+      console.log("templateButton is.");
+
+      templateButton.on("click", () => {
         console.log("button pressed");
-        // @ts-ignore
-        const files: FileList = templateButton[0].files;
-        console.log("files: " + files);
-        if (files.length) {
-          // @ts-ignore
-          const filePath: string = files[0].path;
+        // @ts-ignore: `cep` _does_ exist on `window`.
+        const selection = window.cep.fs.showOpenDialogEx(
+          false, // allowMultipleSelection
+          true, // chooseDirectory
+          "Select the template folder", // title
+          csInterface.getSystemPath(SystemPath.MY_DOCUMENTS), // initialPath
+          undefined, // fileTypes
+        );
+        console.log("selection: ");
+        console.log(selection);
+        console.log("selection.data.length: ", selection.data.length);
+        console.log("selection.data.length (bool): ", !!selection.data.length);
+        if (!!selection.data.length) {
+          const filePath: string = selection.data[0];
           console.log("filePath: " + filePath);
           const osFixedPath: string = filePath.replace(/\\/g, "/");
           console.log("osFixedPath: " + osFixedPath);
-          const path: string = osFixedPath.substr(
-            0,
-            osFixedPath.lastIndexOf("/"),
-          );
-          console.log("Fixed path: " + path);
-          cookieManager.set(path);
-          getFiles(path);
+          cookieManager.set(osFixedPath);
+          getFiles(osFixedPath);
         }
       });
     }

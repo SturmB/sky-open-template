@@ -1,5 +1,34 @@
 # Changelog
 
+<<<<<<< HEAD
+<a name="2021.1.0"></a>
+## 2021.1.0 (2020-10-26)
+
+### Miscellaneous
+
+-  Debugging & README [[b45c6bd](https://github.com/SturmB/sky-open-template/commit/b45c6bdf2ce8af541e3e33bc38a6109817940aeb)]
+=======
+<a name="2021.1.1"></a>
+## 2021.1.1 (2020-12-16)
+
+### Changed
+
+- 🎨 Minor adjustments to the manifest [[785dfd3](https://github.com/SturmB/sky-open-template/commit/785dfd3d2fb3fcf112633359540d8cf197188eac)]
+
+### Removed
+
+- 🔥 Removes duplicate selector [[8337069](https://github.com/SturmB/sky-open-template/commit/83370693cc78cdb5e622eb9e392a0949a7c231ed)]
+
+### Fixed
+
+- 🐛 Fixes the Templates button [[f2c69df](https://github.com/SturmB/sky-open-template/commit/f2c69dfe3b38c055e9ce0b0e234adc1150a24550)]
+- 🐛 Fixes `getSystemPath()` [[43d2b6b](https://github.com/SturmB/sky-open-template/commit/43d2b6be106886cc1a75496766abeaa65e26a370)]
+
+### Miscellaneous
+
+- 🚧 Uses code from Remco Janssen [[95b3211](https://github.com/SturmB/sky-open-template/commit/95b3211f16e3c593398610897f779d75bc486f09)]
+
+
 <a name="2021.1.0"></a>
 ## 2021.1.0 (2020-10-26)
 
@@ -92,4 +121,7 @@
 -  Yarn Added [[b423ea4](https://github.com/SturmB/sky-open-template/commit/b423ea4079ed2f1e9f21a169effb8cfb07a0aedc)]
 -  Initial Commit [[a2c17cc](https://github.com/SturmB/sky-open-template/commit/a2c17cc4625699b0a57e0e45a13ccb48eeca3bb1)]
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> file-browser-cep
