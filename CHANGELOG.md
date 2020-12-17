@@ -1,6 +1,40 @@
 # Changelog
 
-<<<<<<< HEAD
+<a name="2021.1.2"></a>
+## 2021.1.2 (2020-12-17)
+
+### Fixed
+
+- 🐛 Fixes manifest version number so .zxp package will install [[0ce8b7f](https://github.com/SturmB/sky-open-template/commit/0ce8b7f2f8311a2adf38d3c9ac3833bb9262758d)]
+
+### Miscellaneous
+
+- 📝 Adds an additional installation method to the docs [[fa2c444](https://github.com/SturmB/sky-open-template/commit/fa2c44414145a66a80da5e40ee02e6b5f24837b5)]
+- 🔀 Merges `file-browser-cep` into `main` [[4efc6e2](https://github.com/SturmB/sky-open-template/commit/4efc6e2e588e757b4062a851d974742238963118)]
+- 📦 Updates the version number in `package-lock.json` [[e8468a7](https://github.com/SturmB/sky-open-template/commit/e8468a7f6828e40798c3bdb455980f4a515ed684)]
+
+
+<a name="2021.1.1"></a>
+## 2021.1.1 (2020-12-16)
+
+### Changed
+
+- 🎨 Minor adjustments to the manifest [[785dfd3](https://github.com/SturmB/sky-open-template/commit/785dfd3d2fb3fcf112633359540d8cf197188eac)]
+
+### Removed
+
+- 🔥 Removes duplicate selector [[8337069](https://github.com/SturmB/sky-open-template/commit/83370693cc78cdb5e622eb9e392a0949a7c231ed)]
+
+### Fixed
+
+- 🐛 Fixes the Templates button [[f2c69df](https://github.com/SturmB/sky-open-template/commit/f2c69dfe3b38c055e9ce0b0e234adc1150a24550)]
+- 🐛 Fixes `getSystemPath()` [[43d2b6b](https://github.com/SturmB/sky-open-template/commit/43d2b6be106886cc1a75496766abeaa65e26a370)]
+
+### Miscellaneous
+
+- 🚧 Uses code from Remco Janssen [[95b3211](https://github.com/SturmB/sky-open-template/commit/95b3211f16e3c593398610897f779d75bc486f09)]
+
+
 <a name="2021.1.0"></a>
 ## 2021.1.0 (2020-10-26)
 
