@@ -154,8 +154,3 @@
 -  Create README.md [[80a9ce1](https://github.com/SturmB/sky-open-template/commit/80a9ce17e488b602d10f69356b0e88d2c91dda16)]
 -  Yarn Added [[b423ea4](https://github.com/SturmB/sky-open-template/commit/b423ea4079ed2f1e9f21a169effb8cfb07a0aedc)]
 -  Initial Commit [[a2c17cc](https://github.com/SturmB/sky-open-template/commit/a2c17cc4625699b0a57e0e45a13ccb48eeca3bb1)]
-
-<<<<<<< HEAD
-
-=======
->>>>>>> file-browser-cep
