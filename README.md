@@ -4,7 +4,7 @@ Adobe Illustrator extension to quickly find and open files from a user-chosen lo
 
 ## Installation
 
-Install the latest .ZXP release with [Anastasiy's Extension Manager][aem].
+Install the latest .ZXP release with either [ZXPInstaller][zxpi] or [Anastasiy's Extension Manager][aem].
 
 ## Usage
 
@@ -18,3 +18,4 @@ Once the file list has been populated, you may used the "Filter" search box to n
 _Note: The filter box is simple and does not accept any advanced syntaxes such as regular expressions at this time._
 
 [aem]:https://install.anastasiy.com/
+[zxpi]:https://zxpinstaller.com/
