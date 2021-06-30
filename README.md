@@ -1,10 +1,39 @@
-# sky-open-template
+# Open Template
 
-Adobe Illustrator extension to quickly find and open files from a user-chosen location. At Sky Unlimited, Inc., it is used for opening printing templates for products, thus the name "sky-open-template."
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/skyunlimitedinc/sky-open-template)](https://github.com/skyunlimitedinc/sky-open-template/releases)
+
+Adobe Illustrator extension to quickly open template files.
+
+## Table of Contents
+
+- [Open Template](#open-template)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+  - [Author](#author)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+
+## Description
+
+This is an Adobe Illustrator CEP extension designed to quickly find and open files from a user-chosen location. At Sky Unlimited, Inc., it is used for opening printing templates for products, thus the name "sky-open-template."
+
+## Author
+
+- [@SturmB](https://github.com/SturmB)
+  - [![Twitter Follow](https://img.shields.io/twitter/follow/SturmB?style=social)](https://twitter.com/SturmB)
+  - [![Twitch Status](https://img.shields.io/twitch/status/SturmB?style=social)](https://www.twitch.tv/sturmb)
+  - [![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCgiu5VTFiZls9QGRP-FRmSg?style=social)](https://www.youtube.com/c/ChrisMcGee)
+
+## Features
+
+- Rapid method of opening one file or many
+- Filter box to quickly find the file(s) you need
+- Ideal for those who need to often open files from a complex file structure
 
 ## Installation
 
-Install the latest .ZXP release with either [ZXPInstaller][zxpi] or [Anastasiy's Extension Manager][aem].
+Download the [latest .ZXP release][latest-release] and install it with either [ZXPInstaller][zxpi] or [Anastasiy's Extension Manager][aem].
 
 ## Usage
 
@@ -19,3 +48,4 @@ _Note: The filter box is simple and does not accept any advanced syntaxes such a
 
 [aem]:https://install.anastasiy.com/
 [zxpi]:https://zxpinstaller.com/
+[latest-release]:https://github.com/skyunlimitedinc/sky-open-template/releases/latest
