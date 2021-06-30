@@ -4,7 +4,7 @@
   "version": "2021.1.2",
   "author": "Chris McGee <chris@chrismcgee.info>",
   "bugs": {
-    "url": "https://github.com/SturmB/sky-open-template/issues"
+    "url": "https://github.com/skyunlimitedinc/sky-open-template/issues"
   },
   "dependencies": {
     "@types/fs-plus": "^3.0.0",
@@ -48,7 +48,7 @@
     "webpack-cli": "^3.3.9",
     "yuicompressor": "^2.4.8"
   },
-  "homepage": "https://github.com/SturmB/sky-open-template#readme",
+  "homepage": "https://github.com/skyunlimitedinc/sky-open-template#readme",
   "keywords": [
     "CEP",
     "JavaScript",
@@ -62,7 +62,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SturmB/sky-open-template.git"
+    "url": "git+ssh://git@github.com/skyunlimitedinc/sky-open-template.git"
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
