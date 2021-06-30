@@ -3,7 +3,10 @@
   "version": "2021.1.2",
   "description": "Adobe Illustrator extension to quickly open template files. Only works on the Sky Unlimited, Inc. network.",
   "private": true,
-  "repository": "https://github.com/SturmB/sky-open-template.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SturmB/sky-open-template.git"
+  },
   "author": "Chris McGee <chris@chrismcgee.info>",
   "license": "MIT",
   "devDependencies": {
@@ -57,5 +60,18 @@
     "update": "node ./src/utils/dev/npmCommands.js update",
     "register": "node ./src/utils/dev/npmCommands.js register",
     "help": "node ./src/utils/dev/npmCommands.js help"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/SturmB/sky-open-template/issues"
+  },
+  "homepage": "https://github.com/SturmB/sky-open-template#readme",
+  "main": "js/main.js",
+  "keywords": [
+    "TypeScript",
+    "JavaScript",
+    "template",
+    "adobe",
+    "CEP",
+    "extension"
+  ]
 }
